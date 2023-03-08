@@ -88,99 +88,6 @@
   <a href="" class="categoriamenu border-radius-md categoriamenu">
     <span class="ps-3">teste</span>
   </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
   
 </div>
 
@@ -212,97 +119,6 @@
     <span class="ps-3">teste</span>
   </a>
 
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
-
-  <a href="" class="categoriamenu border-radius-md">
-    <span class="ps-3">teste</span>
-  </a>
   
 </div>
 
@@ -540,7 +356,7 @@
 
 <section class="pt-3 pb-3" id="count-stats">
   <div class="container">
-    <div class="row ">
+    <div class="row">
       <table>
         <div class="filtro">
           <div class="centerfiltro">
@@ -565,83 +381,23 @@
           <div class="centerfiltro">
             <label for="pesquisa">Pesquisa:</label>
             <input class="form-control" style="width: 15rem;" id="" type="search" placeholder="Procurar..">
-          </div>
-
-        <ul> @foreach ($produtos as $produto)
-            <td>
-                <div class="card" style="width: 15rem;">
-                    <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{($produto->PRODUTO_NOME)}}</h5>
-                        <p class="card-text">{{($produto->PRODUTO_DESC)}}</p>
-                        <p class="card-number" >{{($produto->PRODUTO_PRECO)}}</p>
-                        <a type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4">views</a>
-                        <br>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </td>
-            @endforeach
-        </ul>
-
-
-
-
-
-
-
-
-          
+          </div>        
         </div>
-          <tbody id="myTable">
-            <td>
-              <div class="card" style="width: 15rem;">
-                <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{($produto->PRODUTO_NOME)}}</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <p class="card-number" >15,00</p>
-                  <a type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4">views</a>
-                  <br>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="card" style="width: 15rem;">
-                <img src="assets/img/curved-images/teste2.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <p class="card-number" >15,90</p>
-                  
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                  
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="card" style="width: 15rem;">
-                <img src="assets/img/curved-images/teste3.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <p class="card-number" >15,90</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="card" style="width: 15rem;">
-                <img src="assets/img/curved-images/teste4.webp " class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <p class="card-number" >15,90</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </td>
+          <tbody id="myTable"> @foreach ($produtos as $produto)
+              <td>
+                  <div class="card" style="width: 15rem;">
+                      <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">{{($produto->PRODUTO_NOME)}}</h5>
+                          <p class="card-text">{{($produto->PRODUTO_DESC)}}</p>
+                          <p class="card-number" >{{($produto->PRODUTO_PRECO)}}</p>
+                          <a type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4">views</a>
+                          <br>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                  </div>
+              </td>
+              @endforeach
           </tbody>
       </table>
     </div>
