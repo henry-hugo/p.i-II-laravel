@@ -15,5 +15,7 @@ class ProdutoController extends Controller
         // ver os dados do banco  dd($produto);
         return view('produto.show')->with('produto', $produto);
     }
+
+    
 }
 

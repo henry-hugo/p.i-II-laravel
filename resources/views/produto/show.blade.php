@@ -256,12 +256,10 @@
 
 
 <header class="header-2">
-  <div class="page-header min-vh-75 relative" style="background-image: url('/assets/img/curved-images/brinquedo.jpg')">
+  <div class="page-header min-vh-75 relative" style="background-image: url('/assets/img/curved-images/dcfundo.jpg')">
     <div class="container">
       <div class="row">
-        <div class="col-lg-7 text-center mx-auto">
-          <h1 class="text-black pt-3 mt-n5">Promoções imperdíveis </h1>
-          <p class="lead text-black mt-3">Só aqui você acha o que procura com o maior desconto!<br/> Não perca tempo e aproveite tudo de melhor da nossa loja!! </p>
+        <div class="col-lg-7 text-center mx-auto"> 
         </div>
       </div>
     </div>
@@ -294,10 +292,10 @@
                         <img class="d-block w-100" src="/assets/img/curved-images/banner1.png" alt="Primeiro Slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="/assets/img/curved-images/banner1.png" alt="Segundo Slide">
+                        <img class="d-block w-100" src="/assets/img/curved-images/banner2jpg.jpg" alt="Segundo Slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="/assets/img/curved-images/banner1.png" alt="Terceiro Slide">
+                        <img class="d-block w-100" src="/assets/img/curved-images/banner3.jpg" alt="Terceiro Slide">
                     </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -315,7 +313,7 @@
                     <h3>R$ {{$produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO}} <sup class="desconto">{{$produto->PRODUTO_DESCONTO}} OFF</sup></h3>
                     <button class="btn btn-secondary" type="submit">Compra</button><br>
                     <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
-                    <a href="http://">Continuar Comprando</a>
+                    <a href="{{ route('produto.index', $produto->PRODUTO_ID )}}">Continuar Comprando</a>
                 </div>
                 <div>
                   Descriçao:
