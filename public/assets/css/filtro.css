@@ -45,3 +45,11 @@
     background-color: transparent;
     border: 0;
 }
+
+#tamanho{
+    width: 40rem;
+    height: auto;
+}
+.float{
+    float: right;
+}

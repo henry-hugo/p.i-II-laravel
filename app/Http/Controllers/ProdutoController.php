@@ -11,5 +11,9 @@ class ProdutoController extends Controller
         $produtos = Produto::all();
         return view('produto.index')->with('produtos', $produtos);
     }
+    public function show(Produto $produto){
+        // ver os dados do banco  dd($produto);
+        return view('produto.show')->with('produto', $produto);
+    }
 }
 

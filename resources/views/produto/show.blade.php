@@ -3,15 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="apple-touch-icon" sizes="76x76" href="{{url ('/assets/img/apple-icon.png')}}">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<title> 
-  Foxtrot
-</title>
+<title>{{$produto->PRODUTO_NOME}}</title>
 
 
 
@@ -286,122 +284,39 @@
   </div>
 </header>
 
-
-<!-- carrosel header -->
-
-
-<section class="pt-3 pb-4" id="count-stats">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
-        <div class="row">
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="container" src="assets/img/curved-images/banner1.png" alt="">
-              </div>
-              <div class="carousel-item">
-                <img class="container" src="assets/img/curved-images/banner2jpg.jpg" alt="">
-              </div>
-              <div class="carousel-item">
-                <img class="container"  src="assets/img/curved-images/banner3.jpg" alt="">
-              </div>
+<main>
+    <section>
+        <div class="container">
+            <div id="tamanho">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/assets/img/curved-images/banner1.png" alt="Primeiro Slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="/assets/img/curved-images/banner1.png" alt="Segundo Slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="/assets/img/curved-images/banner1.png" alt="Terceiro Slide">
+                    </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
+                <div>
+                    <H2>{{$produto->PRODUTO_NOME}}</H2>
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- tabela do banco de dados -->
-
-<section class="pt-3 pb-3" id="count-stats">
-  <div class="container">
-    <div class="row">
-      <table>
-        <div class="filtro">
-          <div class="centerfiltro">
-            <svg width="16" height="13" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="IconSort"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.88883 3.77821L4.33328 0.222656L0.777723 3.77821L3.44439 3.77821L3.44439 10.0004L5.22217 10.0004L5.22217 3.77821L7.88883 3.77821ZM9.66661 16.2227L13.2222 12.6671L10.5555 12.6671L10.5555 6.44488L8.77772 6.44488L8.77772 12.6671L6.11106 12.6671L9.66661 16.2227Z" fill="#FF6500"></path></svg>
-            <label for="ordenar"> Ordenar: </label>
-            <select class="form-control" style="width: 15rem;">
-              <option value="escolha">Escolha</option>
-              <option value="precoCrescente">Preço Crescente</option>
-              <option value="precoDecrescente">Preço Decrescente</option>
-            </select>
-          </div>
-          <div class="centerfiltro">
-            <label for="exibir">Exibir:</label>
-            <select class="form-control" style="width: 15rem;">
-              <option value="escolha">Escolha</option>
-              <option value="20pag">20 Produtos</option>
-              <option value="40pag">40 Produtos</option>
-              <option value="60pag">60 Produtos</option>
-              <option value="100pag">100 Produtos</option>
-            </select>
-          </div>
-          <div class="centerfiltro">
-            <label for="pesquisa">Pesquisa:</label>
-            <input class="form-control" style="width: 15rem;" id="" type="search" placeholder="Procurar..">
-          </div>        
-        </div>
-          <tbody id="myTable"> @foreach ($produtos as $produto)
-              <td>
-                  <div class="card" style="width: 15rem;">
-                      <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
-                      <div class="card-body">
-                          <h5 class="card-title">{{($produto->PRODUTO_NOME)}}</h5>
-                          <p class="card-text">{{($produto->PRODUTO_DESC)}}</p>
-                          <p class="card-number" >{{($produto->PRODUTO_PRECO)}}</p>
-                          <a href="{{ route('produto.show', $produto->PRODUTO_ID )}}">views</a>
-                          <br>
-                          <a href="#" class="btn btn-primary">Comprar</a>
-                      </div>
-                  </div>
-              </td>
-              @endforeach
-          </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-  
-<!-- modal views produtos -->
-
-<div class="modal fade"  id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-body">
-      <form class="was-validated" action="" method="POST">
-        <div class="modal-header">
-          <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">{{($produto->PRODUTO_NOME)}}</h3>
-        </div>
-          <div>
-            <h3 class="modal-title" id="staticBackdropLabel"></h3>
             
-              				 
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <input type="submit" value="enviar" class="btn btn-primary">
         </div>
-      </form>	
-    </div>
-  </div>
-  </div>
-</div>
-
-
-
+    </section>
+</main>
 
 
 
@@ -671,9 +586,6 @@
 
 
 
-    <!-- <ul> @foreach ($produtos as $produto)
-        <li>{{ $produto->PRODUTO_NOME }} {{ $produto->PRODUTO_PRECO }} </li>
-        @endforeach
-    </ul>
-    
-    <p>{{($produtos)}}</p> -->
+
+
+ 
