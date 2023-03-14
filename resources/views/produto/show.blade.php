@@ -309,8 +309,17 @@
                     <span class="sr-only">Próximo</span>
                     </a>
                 </div>
-                <div>
+                <div class="possition-desc">
                     <H2>{{$produto->PRODUTO_NOME}}</H2>
+                    <h4 class="price" >R$ {{$produto->PRODUTO_PRECO}}</h4>
+                    <h3>R$ {{$produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO}} <sup class="desconto">{{$produto->PRODUTO_DESCONTO}} OFF</sup></h3>
+                    <button class="btn btn-secondary" type="submit">Compra</button><br>
+                    <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
+                    <a href="http://">Continuar Comprando</a>
+                </div>
+                <div>
+                  Descriçao:
+                  <p>{{$produto->PRODUTO_DESC}}</p>
                 </div>
             </div>
             

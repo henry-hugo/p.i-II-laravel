@@ -50,6 +50,16 @@
     width: 40rem;
     height: auto;
 }
-.float{
-    float: right;
+.possition-desc{
+    position: relative;
+    bottom: 20rem;
+    left: 110%;
+}
+
+.price{
+    text-decoration:line-through;
+}
+.desconto{
+    color: green;
+    font-size: 1rem;
 }
