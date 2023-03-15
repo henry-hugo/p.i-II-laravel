@@ -355,7 +355,7 @@
           </div>        
         </div>
           <tbody id="myTable"> @foreach ($produtos as $produto)
-              <td>
+              <td class="myTable">
                   <div class="card" style="width: 15rem;">
                       <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
                       <div class="card-body">

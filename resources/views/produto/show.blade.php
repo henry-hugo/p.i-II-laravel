@@ -315,7 +315,7 @@
                     <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
                     <a href="{{ route('produto.index', $produto->PRODUTO_ID )}}">Continuar Comprando</a>
                 </div>
-                <div>
+                <div style="position: relative; bottom:10rem;">
                   Descriçao:
                   <p>{{$produto->PRODUTO_DESC}}</p>
                 </div>

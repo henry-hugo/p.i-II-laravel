@@ -1,9 +1,8 @@
 .filtro{
-    display: grid;
+    display: inline-flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
     width: 100%;
-    grid-template-columns: repeat(3, 3fr) 1fr;
     font-size: 1rem;
     gap: 0px 0.5rem;
     border-bottom: 1px solid rgb(182, 187, 194);
@@ -11,7 +10,7 @@
 }
 .centerfiltro{
     max-width: none;
-    display: flex;
+    display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
     color: rgb(66, 70, 77);
@@ -62,4 +61,9 @@
 .desconto{
     color: green;
     font-size: 1rem;
+}
+.myTable{
+    display: inline-flex;
+    padding-left: 1rem;
+    padding-top: 1rem;
 }

@@ -6,13 +6,13 @@ use App\Http\Controllers\ProdutoController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // criar uma rota do controller
 
-Route::get('/produto',[ProdutoController::class,'index'])->name('produto.index');
+Route::get('/',[ProdutoController::class,'index'])->name('produto.index');
 
 //
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
