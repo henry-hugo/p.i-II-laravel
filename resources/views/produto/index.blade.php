@@ -9,7 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<title> 
+<title>
   Foxtrot
 </title>
 
@@ -38,8 +38,8 @@
 </head>
 
 <body class="index-page">
-  
-  
+
+
   <!-- Navbar -->
 <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
 <nav class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
@@ -88,7 +88,7 @@
   <a href="" class="categoriamenu border-radius-md categoriamenu">
     <span class="ps-3">teste</span>
   </a>
-  
+
 </div>
 
 <div class="d-lg-none">
@@ -119,7 +119,7 @@
     <span class="ps-3">teste</span>
   </a>
 
-  
+
 </div>
 
           </div>
@@ -135,11 +135,11 @@
         <li class="nav-item my-auto ms-3 ms-lg-0">
           <a type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
         </li>
-        
+
         <li class="nav-item my-auto ms-3 ms-lg-0">
-          
+
           <a type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
-          
+
         </li>
       </ul>
     </div>
@@ -166,14 +166,14 @@
             </div>
             <div class="mb-3">
               <textarea class="form-control" name="faleconosco" id="faleconosco" cols="50" rows="10"></textarea>
-            </div> 
-              				 
+            </div>
+
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
           <input type="submit" value="enviar" class="btn btn-primary">
         </div>
-      </form>	
+      </form>
     </div>
   </div>
   </div>
@@ -192,7 +192,7 @@
           <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Cadastro</h3>
         </div>
           <div>
-            <h3 class="modal-title" id="staticBackdropLabel"></h3> 
+            <h3 class="modal-title" id="staticBackdropLabel"></h3>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
                 <input type="text" class="form-control" name="nome" required onchange='campobranco' id="categoria_name" placeholder="abc">
@@ -209,17 +209,17 @@
                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
                 <input type="password" class="form-control" name="senha" size=15 required onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")'; id="senha" placeholder="****">
                 </div>
-              
+
               <div class="mb-3">
                 <label for="exampleFormControsenha" class="form-label"> Confirme a Senha</label>
                 <input type="password" class="form-control" name="confirme_senha" size=15 required onchange='conferesenha();' id="confirme_senha" placeholder="****">
-              </div>							 
+              </div>
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
           <input type="submit" value="enviar" class="btn btn-primary">
         </div>
-      </form>	
+      </form>
     </div>
   </div>
   </div>
@@ -228,12 +228,12 @@
 <!-- Modal do login -->
 <div class="modal fade"  id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <div class="modal-content"> 
+  <div class="modal-content">
     <div class="modal-body">
       <form class="was-validated" action="" method="POST">
         <div class="modal-header">
         <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel" >Login</h3>
-        </div>							 
+        </div>
         <div class="mb-3">
           <label for="exampleFormControEMAIL" class="form-label"> Email</label>
           <input type="email" class="form-control" name="email" required onchange='campobranco' required onchange='confere(email, confirme_email, "email")';  id="email" placeholder="abc@gmail.com">
@@ -246,7 +246,7 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
           <input type="submit" value="enviar" class="btn btn-primary">
         </div>
-      </form>	
+      </form>
     </div>
   </div>
   </div>
@@ -254,7 +254,7 @@
 
 
 
-  
+
 
 
 <header class="header-2">
@@ -352,7 +352,7 @@
           <div class="centerfiltro">
             <label for="pesquisa">Pesquisa:</label>
             <input class="form-control" style="width: 15rem;" id="" type="search" placeholder="Procurar..">
-          </div>        
+          </div>
         </div>
           <tbody id="myTable"> @foreach ($produtos as $produto)
               <td class="myTable">
@@ -362,7 +362,7 @@
                           <h5 class="card-title">{{($produto->PRODUTO_NOME)}}</h5>
                           <p class="card-text">{{($produto->PRODUTO_DESC)}}</p>
                           <p class="card-number" >{{($produto->PRODUTO_PRECO)}}</p>
-                          <a href="{{ route('produto.show', $produto->PRODUTO_ID )}}">views</a>
+                          <a href="/produto/{{$produto->PRODUTO_ID}}">views</a>
                           <br>
                           <a href="#" class="btn btn-primary">Comprar</a>
                       </div>
@@ -374,7 +374,7 @@
     </div>
   </div>
 </section>
-  
+
 <!-- modal views produtos -->
 
 <div class="modal fade"  id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -387,14 +387,14 @@
         </div>
           <div>
             <h3 class="modal-title" id="staticBackdropLabel"></h3>
-            
-              				 
+
+
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
           <input type="submit" value="enviar" class="btn btn-primary">
         </div>
-      </form>	
+      </form>
     </div>
   </div>
   </div>
@@ -675,5 +675,5 @@
         <li>{{ $produto->PRODUTO_NOME }} {{ $produto->PRODUTO_PRECO }} </li>
         @endforeach
     </ul>
-    
+
     <p>{{($produtos)}}</p> -->
