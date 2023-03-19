@@ -12,8 +12,7 @@ use App\Http\Controllers\ProdutoController;
 
 // criar uma rota do controller
 
-Route::get('/',[ProdutoController::class,'index'])->name('produto.index');
-Route::post('/',[ProdutoController::class,'store'])->name('produto.index');
+Route::match(['get','post'],'/',[ProdutoController::class,'index'])->name('produto.index');
 
 
 //

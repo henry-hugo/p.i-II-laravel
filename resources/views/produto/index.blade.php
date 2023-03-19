@@ -85,10 +85,11 @@
     </div>
     Todas Categoria
   </div>
+  @foreach ($categorias as $categoria) 
   <a href="" class="categoriamenu border-radius-md categoriamenu">
-    <span class="ps-3"></span>
+    <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
   </a>
-
+  @endforeach
 </div>
 
 <div class="d-lg-none">
