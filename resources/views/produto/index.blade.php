@@ -86,7 +86,7 @@
     Todas Categoria
   </div>
   <a href="" class="categoriamenu border-radius-md categoriamenu">
-    <span class="ps-3">teste</span>
+    <span class="ps-3"></span>
   </a>
 
 </div>
@@ -187,7 +187,8 @@
   <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-body">
-      <form class="was-validated" action="" method="POST">
+      <form class="was-validated" action="{{route('produto.index')}}" method="POST">
+        @csrf
         <div class="modal-header">
           <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Cadastro</h3>
         </div>
@@ -196,24 +197,28 @@
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
                 <input type="text" class="form-control" name="nome" required onchange='campobranco' id="categoria_name" placeholder="abc">
-                </div>
-                <div class="mb-3">
+              </div>
+              <div class="mb-3">
                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
                 <input type="email" class="form-control" name="email" required onchange='campobranco' required onchange='confere(email, confirme_email, "email")';  id="email" placeholder="abc@gmail.com">
-                </div>
-                <div class="mb-3">
+              </div>
+              <div class="mb-3">
                 <label for="exampleFormControEMAIL" class="form-label"> Confirme o Email</label>
                 <input type="email" class="form-control" name="confirme_email" required onchange='confereemail();' id="confirme_email" placeholder="abc@gmail.com">
-                </div>
-                <div class="mb-3">
+              </div>
+              <div class="mb-3">
                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
                 <input type="password" class="form-control" name="senha" size=15 required onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")'; id="senha" placeholder="****">
-                </div>
-
+              </div>
               <div class="mb-3">
                 <label for="exampleFormControsenha" class="form-label"> Confirme a Senha</label>
                 <input type="password" class="form-control" name="confirme_senha" size=15 required onchange='conferesenha();' id="confirme_senha" placeholder="****">
               </div>
+              <div class="mb-3">
+                <label for="exampleFormControcpf" class="form-label"> CPF</label>
+                <input type="number" class="form-control" name="cpf" required id="cpf" placeholder="xxx.xxx.xxx-xx">
+              </div>
+
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -354,15 +359,16 @@
             <input class="form-control" style="width: 15rem;" id="" type="search" placeholder="Procurar..">
           </div>
         </div>
-          <tbody id="myTable"> @foreach ($produtos as $produto)
+          <tbody id="myTable"> @foreach ($produtos as $produto) 
               <td class="myTable">
-                  <div class="card" style="width: 15rem;">
+                  <div class="card" style="width:15rem;">
                       <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
                       <div class="card-body">
-                          <h5 class="card-title">{{($produto->PRODUTO_NOME)}}</h5>
-                          <p class="card-text">{{($produto->PRODUTO_DESC)}}</p>
+                          <h5 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18);}}</h5>
+                          <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18);}}</p>
                           <p class="card-number" >{{($produto->PRODUTO_PRECO)}}</p>
                           <a href="/produto/{{$produto->PRODUTO_ID}}">views</a>
+                          <br>
                           <br>
                           <a href="#" class="btn btn-primary">Comprar</a>
                       </div>
