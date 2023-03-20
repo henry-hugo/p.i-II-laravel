@@ -50,9 +50,12 @@
     height: auto;
 }
 .possition-desc{
+    width: 25rem;
+    height: auto;
     position: relative;
+    left: 55%;
     bottom: 20rem;
-    left: 110%;
+    
 }
 
 .price{
