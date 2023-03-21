@@ -236,12 +236,12 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="nome" required onchange='campobranco'
+                                <input type="text" class="form-control" name="USUARIO_NAME" required onchange='campobranco'
                                     id="categoria_name" placeholder="abc">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="email" required onchange='campobranco'
+                                <input type="email" class="form-control" name="USUARIO_EMAIL" required onchange='campobranco'
                                     required onchange='confere(email, confirme_email, "email")' ; id="email"
                                     placeholder="abc@gmail.com">
                             </div>
@@ -252,7 +252,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
-                                <input type="password" class="form-control" name="senha" size=15 required
+                                <input type="password" class="form-control" name="USUARIO_SENHA" size=15 required
                                     onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")'
                                     ; id="senha" placeholder="****">
                             </div>
@@ -263,7 +263,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControcpf" class="form-label"> CPF</label>
-                                <input type="number" class="form-control" name="cpf" required id="cpf"
+                                <input type="number" class="form-control" name="USUARIO_CPF" required id="cpf"
                                     placeholder="xxx.xxx.xxx-xx">
                             </div>
 
@@ -317,13 +317,13 @@
 
     <header class="header-2">
         <div class="page-header min-vh-75 relative"
-            style="background-image: url('/assets/img/curved-images/brinquedo.jpg')">
+            style="background-image: url('/assets/img/curved-images/logo.jpg')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
-                        <h1 class="text-black pt-3 mt-n5">Promoções imperdíveis </h1>
-                        <p class="lead text-black mt-3">Só aqui você acha o que procura com o maior desconto!<br /> Não
-                            perca tempo e aproveite tudo de melhor da nossa loja!! </p>
+                        <h1 class="text-dark pt-3 mt-n5">Promoções imperdíveis </h1>
+                        <p class="lead text-dark mt-3">Só aqui você acha o que procura com o maior desconto!<br> 
+                            Nãoperca tempo e aproveite tudo de melhor da nossa loja!! </p>
                     </div>
                 </div>
             </div>

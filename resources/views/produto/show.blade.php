@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<htm l lang="pt-br" itemscope itemtype="http://schema.org/WebPage">
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebPage">
 
     <head>
         <meta charset="utf-8" />
-        <meta a name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
         <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 
@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?famin+Sans:300,400,600,700" rel="stylesheet" />
 
         <!-- Nucleo Icons -->
-        <link k href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
         <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
 
         <!-- Font Awesome Icons -->
@@ -347,19 +347,14 @@
                 <div class="container">
                     <div id="tamanho">
                         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                            @foreach ($produto->ProdutoImagem as $imagem )
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{$imagem->IMAGEM_URL}}" alt="Primeiro Slide">
+                            </div>
+                            @endforeach
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="/assets/img/curved-images/banner1.png"
-                                        alt="Primeiro Slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="/assets/img/curved-images/banner2jpg.jpg"
-                                        alt="Segundo Slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="/assets/img/curved-images/banner3.jpg"
-                                        alt="Terceiro Slide">
-                                </div>
+                                
+                              
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleFade" role="button"
                                 data-slide="prev">
@@ -376,8 +371,10 @@
                     <div class="possition-desc">
                         <H2>{{$produto->PRODUTO_NOME}}</H2>
                         <h4 class="price">R$ {{$produto->PRODUTO_PRECO}}</h4>
-                        <h3>R$ {{$produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO}} <sup
-                                class="desconto">{{$produto->PRODUTO_DESCONTO}} OFF</sup></h3>
+                        <h3>R$ {{$produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO}} 
+                        <sup class="desconto">{{$produto->PRODUTO_DESCONTO}} OFF</sup></h3>
+                        <h3>{{$produto->ProdutoEstoque->PRODUTO_QTD}}</h3>
+                        <H3>{{$produto->Categoria->CATEGORIA_NOME}}</H3>
                         <button class="btn btn-secondary" type="submit">Compra</button><br>
                         <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
                         <a href="{{ route('produto.index', $produto->PRODUTO_ID )}}">Continuar Comprando</a>

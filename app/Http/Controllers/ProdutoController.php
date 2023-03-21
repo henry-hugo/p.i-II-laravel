@@ -18,9 +18,6 @@ class ProdutoController extends Controller
         return view('produto.show')->with('produto', $produto);
     }
 
-    public function store(Request $request){
-        Produto::create($request->only(['nome'],['email'],['senha'],['cpf']));
-        return redirect()->route('produto.index');
-    }
+    
 }
 
