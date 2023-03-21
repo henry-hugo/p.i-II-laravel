@@ -74,3 +74,7 @@
 .text-dark{
     color: black !important;
 }
+
+nav img{
+    border-radius: 50%;
+}

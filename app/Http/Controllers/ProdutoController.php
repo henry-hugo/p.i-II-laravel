@@ -15,7 +15,8 @@ class ProdutoController extends Controller
     }
     public function show(Produto $produto){
         // ver os dados do banco  dd($produto);
-        return view('produto.show')->with('produto', $produto);
+        $categorias = Categoria::all();
+        return view('produto.show')->with('produto', $produto)->with('categorias',$categorias,);
     }
 
     

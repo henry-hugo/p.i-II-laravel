@@ -48,10 +48,7 @@
                 <nav
                     class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid px-0">
-                        <a class="navbar-brand font-weight-bolder ms-sm-3" href="" rel="tooltip"
-                            title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-                            logo
-                        </a>
+                        <img src="assets/img/logo.png" alt="logo" width="80rem">
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -142,9 +139,11 @@
                                                 Todas Categoria
                                             </div>
 
-                                            <a href="" class="categoriamenu border-radius-md">
-                                                <span class="ps-3">teste</span>
+                                            @foreach ($categorias as $categoria)
+                                            <a href="" class="categoriamenu border-radius-md categoriamenu">
+                                                <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
                                             </a>
+                                            @endforeach
 
 
                                         </div>
@@ -227,7 +226,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="was-validated" action="{{route('produto.index')}}" method="POST">
+                    <form class="was-validated" action="{{route('registrar')}}" method="POST">
                         @csrf
                         <div class="modal-header">
                             <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Cadastro</h3>
@@ -236,7 +235,7 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="USUARIO_NAME" required onchange='campobranco'
+                                <input type="text" class="form-control" name="USUARIO_NOME" required onchange='campobranco'
                                     id="categoria_name" placeholder="abc">
                             </div>
                             <div class="mb-3">
@@ -310,6 +309,42 @@
         </div>
     </div>
 
+    <!-- Modal do força a fazer login ou cadastro -->
+    <div class="modal fade" id="loginCadastro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="was-validated" action="" method="POST">
+                        <div class="modal-header">
+                            <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Junte-se hoje à Foxtrot</h3>
+                        </div>
+                        
+                        <div class="mb-3 text-center">
+                            <h4>Vantagens</h4>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Frete gratis</li>
+                                <li>Promoções Foxtrot</li>
+                                <li>Desconto primeiro Cadastro</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                                        class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -321,9 +356,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
-                        <h1 class="text-dark pt-3 mt-n5">Promoções imperdíveis </h1>
-                        <p class="lead text-dark mt-3">Só aqui você acha o que procura com o maior desconto!<br> 
-                            Nãoperca tempo e aproveite tudo de melhor da nossa loja!! </p>
+                        <h1 class="text-dark pt-3 mt-n5">PROMOÇÕES IMPERDÍVEIS </h1>
+                        <b><p class="lead text-dark mt-3">Só aqui você acha o que procura com o maior desconto!<br> 
+                            Nãoperca tempo e aproveite tudo de melhor da nossa loja!! </p></b>
                     </div>
                 </div>
             </div>
@@ -427,7 +462,11 @@
                     <tbody id="myTable"> @foreach ($produtos as $produto)
                         <td class="myTable">
                             <div class="card" style="width:15rem;">
-                                <img src="assets/img/curved-images/teste1.webp" class="card-img-top" alt="...">
+                            @foreach ($produto->ProdutoImagem as $imagem )
+                            @if($imagem->IMAGEM_ORDEM == 0)
+                                <img src="{{$imagem->IMAGEM_URL}}" class="card-img-top" alt="...">
+                            @endif
+                            @endforeach
                                 <div class="card-body">
                                     <h5 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h5>
                                     <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18)}}</p>
@@ -435,7 +474,7 @@
                                     <a href="/produto/{{$produto->PRODUTO_ID}}">views</a>
                                     <br>
                                     <br>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#loginCadastro" class="btn btn-primary">Comprar</a>
                                 </div>
                             </div>
                         </td>

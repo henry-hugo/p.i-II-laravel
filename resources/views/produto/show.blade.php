@@ -101,9 +101,11 @@
                                                     </div>
                                                     Todas Categoria
                                                 </div>
+                                                @foreach ($categorias as $categoria)
                                                 <a href="" class="categoriamenu border-radius-md categoriamenu">
-                                                    <span class="ps-3">teste</span>
+                                                    <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
                                                 </a>
+                                                @endforeach
 
                                             </div>
 
@@ -141,9 +143,11 @@
                                                     Todas Categoria
                                                 </div>
 
-                                                <a href="" class="categoriamenu border-radius-md">
-                                                    <span class="ps-3">teste</span>
+                                                @foreach ($categorias as $categoria)
+                                                <a href="" class="categoriamenu border-radius-md categoriamenu">
+                                                    <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
                                                 </a>
+                                                @endforeach
 
 
                                             </div>
@@ -348,14 +352,16 @@
                     <div id="tamanho">
                         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                             @foreach ($produto->ProdutoImagem as $imagem )
+                            @if($imagem->IMAGEM_ORDEM == 0)
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{$imagem->IMAGEM_URL}}" alt="Primeiro Slide">
+                                <img class="d-block w-100" src="{{$imagem->IMAGEM_URL}}" alt="Slide" height="400px" width="auto">
                             </div>
+                            @else
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{$imagem->IMAGEM_URL}}" alt="Slide" height="400px" width="auto">
+                            </div>
+                            @endif
                             @endforeach
-                            <div class="carousel-inner">
-                                
-                              
-                            </div>
                             <a class="carousel-control-prev" href="#carouselExampleFade" role="button"
                                 data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -370,11 +376,21 @@
                     </div>
                     <div class="possition-desc">
                         <H2>{{$produto->PRODUTO_NOME}}</H2>
+                        @if($produto->PRODUTO_DESC == true)
                         <h4 class="price">R$ {{$produto->PRODUTO_PRECO}}</h4>
-                        <h3>R$ {{$produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO}} 
+                        @endif
+                        @if($produto->PRODUTO_DESC == true)
+                        <h3>R$ {{$produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO}}
                         <sup class="desconto">{{$produto->PRODUTO_DESCONTO}} OFF</sup></h3>
+                        @else
+                        <h3>R$ {{$produto->PRODUTO_PRECO}}</h3>
+                        @endif
+                        @if($produto->ProdutoEstoque->PRODUTO_QTD == true)
                         <h3>{{$produto->ProdutoEstoque->PRODUTO_QTD}}</h3>
-                        <H3>{{$produto->Categoria->CATEGORIA_NOME}}</H3>
+                        @else
+                        <h3>produto indisponível no momento !!</h3>
+                        @endif
+                        <!-- <H3>{{$produto->Categoria->CATEGORIA_NOME}}</H3> -->
                         <button class="btn btn-secondary" type="submit">Compra</button><br>
                         <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
                         <a href="{{ route('produto.index', $produto->PRODUTO_ID )}}">Continuar Comprando</a>

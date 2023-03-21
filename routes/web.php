@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\Usuario;
+use App\Http\Controllers\UsuarioController;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 // criar uma rota do controller
-Route::post('/',[Usuario::class,'store'])->name('produto.index');
-Route::match(['get','post'],'/',[ProdutoController::class,'index'])->name('produto.index');
+Route::match(['get','post'],'/',[UsuarioController::class,'create'])->name('produto.index');
+
+Route::post('/',[UsuarioController::class,'store'])->name('registrar');
 
 //
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
