@@ -15,3 +15,4 @@ Route::post('/',[UsuarioController::class,'store'])->name('registrar');
 
 //
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
+Route::match(['get','post'],'/categoria/{categoria}',[ProdutoController::class,'categoria'])->name('produto.categoria');

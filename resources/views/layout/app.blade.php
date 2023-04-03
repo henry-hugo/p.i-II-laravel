@@ -100,8 +100,8 @@
                                                 </div>
                                                 Todas Categoria
                                             </div>
-                                            @foreach (\App\Models\Categoria::all() as $categoria)
-                                            <a href="" class="categoriamenu border-radius-md categoriamenu">
+                                            @foreach (\App\Models\Categoria::where('CATEGORIA_ATIVO', 1)->get() as $categoria)
+                                            <a href="/categoria/{{$categoria->CATEGORIA_ID}}" class="categoriamenu border-radius-md categoriamenu">
                                                 <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
                                             </a>
                                             @endforeach
@@ -182,6 +182,173 @@
             </div>
         </div>
     </div>
+
+     <!-- Modal do fale conosco -->
+     <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="was-validated" action="" method="POST">
+                        <div class="modal-header">
+                            <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Fale Conosco</h3>
+                        </div>
+                        <div>
+                            <h3 class="modal-title" id="staticBackdropLabel"></h3>
+                            <div class="mb-3">
+                                <label for="exampleFormControEMAIL" class="form-label"> Email</label>
+                                <input type="email" class="form-control" name="email" required onchange='campobranco'
+                                    required onchange='confere(email, confirme_email, "email")' ; id="email"
+                                    placeholder="abc@gmail.com">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" name="faleconosco" id="faleconosco" cols="50"
+                                    rows="10"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <input type="submit" value="enviar" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal do cadastro -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="was-validated" action="{{route('registrar')}}" method="POST">
+                        @csrf
+                        <div class="modal-header">
+                            <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Cadastro</h3>
+                        </div>
+                        <div>
+                            <h3 class="modal-title" id="staticBackdropLabel"></h3>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                                <input type="text" class="form-control" name="USUARIO_NOME" required onchange='campobranco'
+                                    id="categoria_name" placeholder="abc">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControEMAIL" class="form-label"> Email</label>
+                                <input type="email" class="form-control" name="USUARIO_EMAIL" required onchange='campobranco'
+                                    required onchange='confere(email, confirme_email, "email")' ; id="email"
+                                    placeholder="abc@gmail.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControEMAIL" class="form-label"> Confirme o Email</label>
+                                <input type="email" class="form-control" name="confirme_email" required
+                                    onchange='confereemail();' id="confirme_email" placeholder="abc@gmail.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControsenha" class="form-label"> Senha</label>
+                                <input type="password" class="form-control" name="USUARIO_SENHA" size=15 required
+                                    onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")'
+                                    ; id="senha" placeholder="****">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControsenha" class="form-label"> Confirme a Senha</label>
+                                <input type="password" class="form-control" name="confirme_senha" size=15 required
+                                    onchange='conferesenha();' id="confirme_senha" placeholder="****">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControcpf" class="form-label"> CPF</label>
+                                <input type="number" class="form-control" name="USUARIO_CPF" required id="cpf"
+                                    placeholder="xxx.xxx.xxx-xx">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <input type="submit" value="enviar" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do login -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="was-validated" action="" method="POST">
+                        <div class="modal-header">
+                            <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Login</h3>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControEMAIL" class="form-label"> Email</label>
+                            <input type="email" class="form-control" name="email" required onchange='campobranco'
+                                required onchange='confere(email, confirme_email, "email")' ; id="email"
+                                placeholder="abc@gmail.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControsenha" class="form-label"> Senha</label>
+                            <input type="password" class="form-control" name="senha" size=15 required
+                                onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")' ;
+                                id="senha" placeholder="****">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <input type="submit" value="enviar" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do força a fazer login ou cadastro -->
+    <div class="modal fade" id="loginCadastro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="was-validated" action="" method="POST">
+                        <div class="modal-header">
+                            <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Junte-se hoje à Foxtrot</h3>
+                        </div>
+                        
+                        <div class="mb-3 text-center">
+                            <h4>Vantagens</h4>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Frete gratis</li>
+                                <li>Promoções Foxtrot</li>
+                                <li>Desconto primeiro Cadastro</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                                        class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <main>
         @yield('main')
