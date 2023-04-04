@@ -163,7 +163,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item my-auto ms-3 ms-lg-0">
-                                <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight" class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">"Nome da pessoa"</a>
+                                <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight" class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">{{Auth::user()->USUARIO_NOME}}</a>
                                 </li>
                                 
                                 <li class="nav-item my-auto ms-3 ms-lg-0">
