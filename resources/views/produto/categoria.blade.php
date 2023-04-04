@@ -68,11 +68,12 @@
                     <tbody id="myTable"> @foreach ($produtos as $produto)
                         <td class="myTable">
                             <div class="card" style="width:15rem;">
-                            @foreach ($produto->ProdutoImagem as $imagem )
-                            @if($imagem->IMAGEM_ORDEM == 0)
-                                <img src="{{$imagem->IMAGEM_URL}}" class="card-img-top" alt="...">
+                            @if(isset($produto->ProdutoImagem[0]->IMAGEM_URL))
+                                <img src="{{$produto->ProdutoImagem[0]->IMAGEM_URL}}" class="card-img-top" alt="...">
+                            @else
+                                <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top" alt="...">
                             @endif
-                            @endforeach
+                         
                                 <div class="card-body">
                                     <h5 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h5>
                                     <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18)}}</p>

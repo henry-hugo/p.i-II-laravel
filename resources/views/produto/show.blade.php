@@ -94,11 +94,12 @@
                         @foreach (\App\Models\Produto::all()->take(6) as $produto)
                         
                         <div class="card" style="width:15rem;">
-                        @foreach ($produto->ProdutoImagem as $imagem )
-                        @if($imagem->IMAGEM_ORDEM == 0)
-                            <img src="{{$imagem->IMAGEM_URL}}" class="card-img-top" alt="...">
-                        @endif
-                        @endforeach
+                        @if(isset($produto->ProdutoImagem[0]->IMAGEM_URL))
+                                <img src="{{$produto->ProdutoImagem[0]->IMAGEM_URL}}" class="card-img-top" alt="...">
+                            @else
+                                <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top" alt="...">
+                            @endif
+                       
                             <div class="card-body">
                                 <h5 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h5>
                                 <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18)}}</p>
