@@ -226,7 +226,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="was-validated" action="{{route('registrar')}}" method="POST">
+                    <form class="was-validated" action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="modal-header">
                             <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Cadastro</h3>
@@ -235,31 +235,28 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="USUARIO_NOME" required onchange='campobranco'
+                                <input type="text" class="form-control" name="USUARIO_NOME" required 
                                     id="categoria_name" placeholder="abc">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="USUARIO_EMAIL" required onchange='campobranco'
-                                    required onchange='confere(email, confirme_email, "email")' ; id="email"
+                                <input type="email" class="form-control" name="USUARIO_EMAIL" required id="email"
                                     placeholder="abc@gmail.com">
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControEMAIL" class="form-label"> Confirme o Email</label>
-                                <input type="email" class="form-control" name="confirme_email" required
-                                    onchange='confereemail();' id="confirme_email" placeholder="abc@gmail.com">
-                            </div>
+                            
                             <div class="mb-3">
                                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
-                                <input type="password" class="form-control" name="USUARIO_SENHA" size=15 required
-                                    onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")'
-                                    ; id="senha" placeholder="****">
+                                <input type="password" class="form-control" name="USUARIO_SENHA" size=15 
+                                 required id="senha" placeholder="****">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControsenha" class="form-label"> Confirme a Senha</label>
-                                <input type="password" class="form-control" name="confirme_senha" size=15 required
-                                    onchange='conferesenha();' id="confirme_senha" placeholder="****">
+                                <label for="password_confirmation" class="form-label">Senha</label>
+
+                                <input id="password_confirmation" class="form-control"
+                                type="password"
+                                name="password_confirmation" required autocomplete="new-password" placeholder="****">
                             </div>
+            
                             <div class="mb-3">
                                 <label for="exampleFormControcpf" class="form-label"> CPF</label>
                                 <input type="number" class="form-control" name="USUARIO_CPF" required id="cpf"
@@ -283,21 +280,20 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="was-validated" action="" method="POST">
+                    <form class="was-validated" action="{{ route('login') }}" method="POST">
+                    @csrf
                         <div class="modal-header">
                             <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Login</h3>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                            <input type="email" class="form-control" name="email" required onchange='campobranco'
-                                required onchange='confere(email, confirme_email, "email")' ; id="email"
+                            <input type="email" class="form-control" name="USUARIO_EMAIL" required id="email"
                                 placeholder="abc@gmail.com">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControsenha" class="form-label"> Senha</label>
-                            <input type="password" class="form-control" name="senha" size=15 required
-                                onchange='campobranco' required onchange='confere(senha, confirme_senha, "senhas")' ;
-                                id="senha" placeholder="****">
+                            <input type="password" class="form-control" name="USUARIO_SENHA" size=15 required
+                            id="senha" placeholder="****">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
