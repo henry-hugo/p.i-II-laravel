@@ -280,19 +280,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="was-validated" action="{{ route('login') }}" method="POST">
+                    <form class="was-validated" method="POST" action="{{ route('login') }}">
                     @csrf
                         <div class="modal-header">
                             <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Login</h3>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                            <input type="email" class="form-control" name="USUARIO_EMAIL" required id="email"
+                            <input type="email" class="form-control" name="email" required id="email"
                                 placeholder="abc@gmail.com">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControsenha" class="form-label"> Senha</label>
-                            <input type="password" class="form-control" name="USUARIO_SENHA" size=15 required
+                            <input type="password" class="form-control"  name="password" size=15 required
                             id="senha" placeholder="****">
                         </div>
                         <div class="modal-footer">
