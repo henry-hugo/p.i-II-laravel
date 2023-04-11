@@ -162,17 +162,40 @@
                                             data-bs-placement="bottom" title="fale a suas duvidas aqui">fale conosco</p>
                                     </a>
                                 </li>
-                                <li class="nav-item my-auto ms-3 ms-lg-0">
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
-                                </li>
-
-                                <li class="nav-item my-auto ms-3 ms-lg-0">
-
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
-                                        class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
-
-                                </li>
+                                @if(Auth::check())
+                                    <li class="nav-item my-auto ms-3 ms-lg-0">
+                                        <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight" class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                          </svg> &ensp;{{Auth::user()->USUARIO_NOME}}</a>
+                                        </li>
+                                        
+                                        <li class="nav-item my-auto ms-3 ms-lg-0">
+                                            <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                                                </svg>
+                                            </a> 
+                                        
+                                        
+                                        </li>
+                                
+                                @else
+                                
+                                    <li class="nav-item my-auto ms-3 ms-lg-0">
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                            class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
+                                    </li>
+    
+                                    <li class="nav-item my-auto ms-3 ms-lg-0">
+    
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                                            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
+    
+                                    </li>
+                                
+                                @endif
+                                
                             </ul>
                         </div>
                     </div>
@@ -217,6 +240,64 @@
         </div>
     </div>
 
+     <!-- offcanvas do perfil -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight1" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <div>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="offcanvas-body">
+        <div style="text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+        </div>
+        <div class="text-center my-2">
+            @if(Auth::check())
+            {{Auth::user()->USUARIO_EMAIL}} 
+            @else
+            <p>cadastre-se</p>
+            @endif
+        </div>
+        <div>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <x-dropdown-link :href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                sair
+            </x-dropdown-link>
+        </form></a>
+        </div>
+    </div>
+  </div>
+
+<!-- offcanvas do carrinho -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Seu Carrinho</h5>
+      <div>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </button>
+    </div>
+    </div>
+    <div class="offcanvas-body">
+      {{$carrinho[0]->Produto->PRODUTO_NOME}}
+      <img src="{{$carrinho[0]->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt=".." width="50px" height="50px">
+    </div>
+  </div>
 
 
 

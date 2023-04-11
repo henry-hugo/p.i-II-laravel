@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CarrinhoController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -17,9 +18,12 @@ Route::post('/',[UsuarioController::class,'store'])->name('registrar');
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
 Route::match(['get','post'],'/categoria/{categoria}',[ProdutoController::class,'categoria'])->name('produto.categoria');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+route::get('/carrinho/{produto}',[CarrinhoController::class,'store'])->name('carrinho.store');
+route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+
+Route::get('/', function () {
+    return view('produto.index');
+})->middleware(['auth', 'verified'])->name('produto.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

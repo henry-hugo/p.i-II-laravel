@@ -21,5 +21,8 @@ class Produto extends Model
     public function Categoria(){
         return $this->belongsTo(Categoria::class, 'CATEGORIA_ID','CATEGORIA_ID');
     }
+    public function getPrecoDesconto(){
+        return number_format(($this->PRODUTO_PRECO - $this->PRODUTO_DESCONTO), 2, ',', '.');
+    }
 
 }
