@@ -311,16 +311,14 @@
           
           <hr class="border-bottom">
           
-      @endforeach 
-        <div class="footerCanvas">
-            <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID)}}</h4>
-            <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID)}}</span></h4>
-            <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID)}}</h4>
-        </div>
-      
-   
-
-    
+      @endforeach
+        @if(isset($carrinho->ITEM_QTD)) 
+            <div class="footerCanvas">
+                <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID)}}</h4>
+                <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID)}}</span></h4>
+                <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID)}}</h4>
+            </div>
+        @endif
     @endif
   </div>
 
