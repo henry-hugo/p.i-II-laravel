@@ -76,7 +76,7 @@
                     @endif
                     <!-- <H3>{{ $produto->Categoria->CATEGORIA_NOME }}</H3> -->
                     <button class="btn btn-secondary" type="submit">Compra</button><br>
-                    <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
+                    <a href="{{route('carrinho.store', $produto->PRODUTO_ID)}}" class="btn btn-secondary" type="submit">Adicionar no Carrinho</a><br>
                     <a href="{{ route('produto.index', $produto->PRODUTO_ID) }}">Continuar Comprando</a>
                     <div class="ui-box-component ui-box-component-pdp__visible--desktop">
                         <h2 class="ui-box-component__title">Meios de pagamento</h2>
@@ -149,12 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui-pdp-action-modal ui-box-component__action">
-                            <div class="andes-tooltip__trigger" aria-expanded="false"><a
-                                    class="ui-pdp-action-modal__link"
-                                    href="https://produto.mercadolivre.com.br/noindex/services/MLB2969040814/payments?new_version=true&amp;modal=false&amp;newIndex=true">Conheça
-                                    outros meios de pagamento</a></div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div style="position: relative; bottom:10rem;">

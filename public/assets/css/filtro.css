@@ -110,3 +110,7 @@ nav img{
       height: 11em;
     }
   }
+.footerCanvas{
+  position: absolute;
+  bottom: 0;
+}

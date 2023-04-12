@@ -281,7 +281,7 @@
   </div>
 
 <!-- offcanvas do carrinho -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="overflow: auto;">
     <div class="offcanvas-header">
       <h5 id="offcanvasRightLabel">Seu Carrinho</h5>
       <div>
@@ -310,16 +310,17 @@
           </div>
           
           <hr class="border-bottom">
+          
       @endforeach 
+        <div class="footerCanvas">
+            <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID)}}</h4>
+            <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID)}}</span></h4>
+            <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID)}}</h4>
+        </div>
       
-    {{-- <div class="offcanvas-body">
-      {{$carrinho[0]->Produto->PRODUTO_NOME}}
-      <img src="{{$carrinho[0]->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt=".." width="50px" height="50px">
-    </div> --}}
+   
 
-    <footer>
-        <h1>desconto:{{$carrinho->Produto->PRODUTO_DESCONTO}} <span></span></h1>
-    </footer>
+    
     @endif
   </div>
 

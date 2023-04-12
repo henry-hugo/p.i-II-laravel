@@ -65,26 +65,35 @@
                                 placeholder="Procurar..">
                         </div>
                     </div>
-                    <tbody id="myTable"> @foreach ($produtos as $produto)
-                        <td class="myTable">
+                    <tbody id="myTable"> 
+                        @foreach ($produtos as $produto)
                             <div class="card" style="width:15rem;">
-                            @if(isset($produto->ProdutoImagem[0]->IMAGEM_URL))
-                                <img src="{{$produto->ProdutoImagem[0]->IMAGEM_URL}}" class="card-img-top" alt="...">
-                            @else
-                                <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top" alt="...">
-                            @endif
-                         
-                                <div class="card-body">
-                                    <h5 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h5>
-                                    <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18)}}</p>
-                                    <p class="card-number">{{($produto->PRODUTO_PRECO)}}</p>
-                                    <a href="/produto/{{$produto->PRODUTO_ID}}">views</a>
-                                    <br>
-                                    <br>
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#loginCadastro" class="btn btn-primary">Comprar</a>
-                                </div>
+                                <a href="/produto/{{ $produto->PRODUTO_ID }}">
+                                    @if (isset($produto->ProdutoImagem[0]->IMAGEM_URL))
+                                        <img src="{{ $produto->ProdutoImagem[0]->IMAGEM_URL }}" class="card-img-top"
+                                            alt="...">
+                                    @else
+                                        <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top"
+                                            alt="...">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h5>
+                                        <p class="card-text">{{ Str::substr($produto->PRODUTO_DESC, 0, 18) }}</p>
+                                        @if (isset($produto->PRODUTO_DESC))
+                                            <p class="card-number"><i class="price">R$
+                                                    {{ $produto->PRODUTO_PRECO }}</i>
+                                            <h3>R$ {{ $produto->getPrecoDesconto() }} </h3>
+                                            </p>
+                                        @else
+                                            <h3>R$ {{ $produto->PRODUTO_PRECO }}</h3>
+                                        @endif
+                                        @if (!Auth::check())
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#loginCadastro"
+                                                class="btn btn-primary">Comprar</a>
+                                        @endif
+                                    </div>
+                                </a>
                             </div>
-                        </td>
                         @endforeach
                     </tbody>
                 </table>

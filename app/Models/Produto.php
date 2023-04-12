@@ -24,5 +24,6 @@ class Produto extends Model
     public function getPrecoDesconto(){
         return number_format(($this->PRODUTO_PRECO - $this->PRODUTO_DESCONTO), 2, ',', '.');
     }
+    
 
 }
