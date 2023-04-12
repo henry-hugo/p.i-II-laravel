@@ -293,10 +293,34 @@
         </button>
     </div>
     </div>
-    <div class="offcanvas-body">
+    @if(Auth::check())
+    @foreach (\App\Models\Carrinho::where('USUARIO_ID' ,Auth::user()->USUARIO_ID)->get() as $carrinho )
+          <div class="d-flex">
+            <div>
+                <img src="{{$carrinho->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt="" width="70px" height="70px">
+            </div>
+            <div class="m-3">
+                {{$carrinho->Produto->PRODUTO_NOME}}
+            </div>
+            <div>
+                <h6 class="ms-4">QTD <span>+ </span><span>{{$carrinho->ITEM_QTD}}</span><span> -</span></h6>
+                <h5 class="ms-4"> R${{$carrinho->Produto->PRODUTO_PRECO}}</h5>
+            </div>
+            
+          </div>
+          
+          <hr class="border-bottom">
+      @endforeach 
+      
+    {{-- <div class="offcanvas-body">
       {{$carrinho[0]->Produto->PRODUTO_NOME}}
       <img src="{{$carrinho[0]->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt=".." width="50px" height="50px">
-    </div>
+    </div> --}}
+
+    <footer>
+        <h1>desconto:{{$carrinho->Produto->PRODUTO_DESCONTO}} <span></span></h1>
+    </footer>
+    @endif
   </div>
 
 
