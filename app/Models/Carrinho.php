@@ -19,25 +19,33 @@ class Carrinho extends Model
     public function Produto(){
         return $this->belongsTo(Produto::class, 'PRODUTO_ID', 'PRODUTO_ID');
     }
-    public function somaDesconto($id){
+
+
+    public function somaDesconto($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
         $desconto=0;
             for($i=0;$i< count($dados);$i++){
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
             }
-            return number_format(($desconto), 2, ',', '.');
+            return number_format(($desconto* $quantidade), 2, ',', '.');
     }
-    public function somaTotal($id){
+
+
+
+    public function somaTotal($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
         $preco=0;
             for($i=0;$i< count($dados);$i++){
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $preco += $soma[0]['PRODUTO_PRECO'];
             }
-            return number_format(($preco), 2, ',', '.');
+            return number_format(($preco*$quantidade), 2, ',', '.');
     }
-    public function somaFinal($id){
+
+
+
+    public function somaFinal($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
         $desconto=0;
         $preco=0;
@@ -46,6 +54,32 @@ class Carrinho extends Model
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
                 $preco += $soma[0]['PRODUTO_PRECO'];
             }
+            $preco *= $quantidade;
+            $desconto *= $quantidade;
             return number_format(( $preco - $desconto), 2, ',', '.');
     }
+
+
+
+    public function desPrecoDesconto($id , $quantidade){
+        $dados = Carrinho::where('USUARIO_ID', $id)->get();
+        $preco=0;
+        $descontoproduto=0;
+            for($i=0;$i< count($dados);$i++){
+                $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
+                $descontoproduto += $soma[0]['PRODUTO_DESCONTO'];
+                $preco += $soma[0]['PRODUTO_PRECO'];
+            }
+            $preco *= $quantidade;
+            $descontoproduto *= $quantidade;
+            $preco -=  $descontoproduto ;
+            $desconto = $preco / 10;
+            return number_format(( $preco - $desconto), 2, ',', '.');
+    }
+
+    
+    public function somaQTD($quantidade , $preco){
+        return number_format(( $preco * $quantidade), 2, ',', '.');
+    }
+
 }

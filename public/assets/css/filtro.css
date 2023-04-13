@@ -114,3 +114,112 @@ nav img{
   position: relative;
   bottom: 0;
 }
+.offcanvas-footer{
+  position: absolute;
+  bottom: 0;
+}
+.offcanvas-main{
+  height: 66vh;
+}
+.tamanho{
+  width: 150%;
+}
+.buttomCenter{
+  padding-left: 5rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(310deg, #825fa5 0%, #f52a90 100%);
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+  
+}
+.carrinhoCenter{
+  display: flex;
+    float: none;
+    align-items: center;
+    justify-content: center;
+}
+.carrinhoAtivo{
+  color: #FF0080;
+  border-bottom: solid 2px #825fa5;
+}
+.viwTabela{
+  display: flex;
+}
+.tamanhoTabela{
+  width: 40vw;
+}
+.notaFinal{
+  padding: 2rem;
+  border: solid 2px #344767 ;
+  height: auto;
+  max-height: 35vh;
+}
+.tamanhoCarrinho{
+  width: 50%;
+}
+.notaFinal span{
+  float: right;
+  align-items: center;
+}
+.btnCenter{
+  display: block;
+  text-align: center;
+}

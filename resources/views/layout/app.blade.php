@@ -139,7 +139,7 @@
                                                 Todas Categoria
                                             </div>
 
-                                            @foreach (\App\Models\Categoria::all() as $categoria)
+                                            @foreach (\App\Models\Categoria::where('CATEGORIA_ATIVO', 1)->get() as $categoria)
                                             <a href="" class="categoriamenu border-radius-md categoriamenu">
                                                 <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
                                             </a>
@@ -220,8 +220,7 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="email" required onchange='campobranco'
-                                    required onchange='confere(email, confirme_email, "email")' ; id="email"
+                                <input type="email" class="form-control" name="email" required 
                                     placeholder="abc@gmail.com">
                             </div>
                             <div class="mb-3">
@@ -281,21 +280,25 @@
   </div>
 
 <!-- offcanvas do carrinho -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="overflow: auto;">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" >
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Seu Carrinho</h5>
-      <div>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
-        </button>
+            <h2 id="offcanvasRightLabel" class="ms-5" >Seu Carrinho</h2>  
+        <div>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
     </div>
-    </div>
+
+    <hr class="border-bottom">
+
     @if(Auth::check())
+    <div class="offcanvas-main" style="overflow: auto;">
     @foreach (\App\Models\Carrinho::where('USUARIO_ID' ,Auth::user()->USUARIO_ID)->get() as $carrinho )
-          <div class="d-flex">
+        <div class="d-flex">
             <div>
                 <img src="{{$carrinho->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt="" width="70px" height="70px">
             </div>
@@ -304,23 +307,32 @@
             </div>
             <div>
                 <h6 class="ms-4">QTD <span>+ </span><span>{{$carrinho->ITEM_QTD}}</span><span> -</span></h6>
-                <h5 class="ms-4"> R${{$carrinho->Produto->PRODUTO_PRECO}}</h5>
+                <h5 class="ms-4"> R${{$carrinho->somaQTD($carrinho->ITEM_QTD, $carrinho->Produto->PRODUTO_PRECO)}}</h5>
             </div>
             
-          </div>
+        </div>
           
           <hr class="border-bottom">
           
       @endforeach
+    </div>
+
+    <div class="offcanvas-footer">
         @if(isset($carrinho->ITEM_QTD)) 
             <div class="footerCanvas">
-                <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID)}}</h4>
-                <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID)}}</span></h4>
-                <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID)}}</h4>
+                <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID , $carrinho->ITEM_QTD)}}</h4>
+                <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID, $carrinho->ITEM_QTD)}}</span></h4>
+                <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID , $carrinho->ITEM_QTD)}}</h4>
+                <div class="buttomCenter">
+                    <a href="{{route('carrinho.index')}}" class="btn btn-light tamanho">Ver Carrinho</a>
+                    <br>
+                    <button type="submit" class="btn btn-primary tamanho">Finalizar Compra</button>
+                </div>
             </div>
         @endif
+    </div>
     @endif
-  </div>
+</div>
 
 
 
@@ -344,14 +356,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="USUARIO_EMAIL" required id="email"
+                                <input type="email" class="form-control" name="USUARIO_EMAIL" required 
                                     placeholder="abc@gmail.com">
                             </div>
                             
                             <div class="mb-3">
                                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
                                 <input type="password" class="form-control" name="USUARIO_SENHA" size=15 
-                                 required id="senha" placeholder="****">
+                                 required placeholder="****">
                             </div>
                             <div class="mb-3">
                                 <label for="password_confirmation" class="form-label">Senha</label>
@@ -391,13 +403,13 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                            <input type="email" class="form-control" name="email" required id="email"
+                            <input type="email" class="form-control" name="email" required
                                 placeholder="abc@gmail.com">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControsenha" class="form-label"> Senha</label>
                             <input type="password" class="form-control"  name="password" size=15 required
-                            id="senha" placeholder="****">
+                             placeholder="****">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -637,25 +649,6 @@
 
 
 
-<!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
-<script src="/assets/js/plugins/countup.min.js"></script>
-
-
-
-
-
-<script src="/assets/js/plugins/choices.min.js"></script>
-
-
-
-
-
-<script src="/assets/js/plugins/prism.min.js"></script>
-<script src="/assets/js/plugins/highlight.min.js"></script>
-
-
-
-
 
 <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
 <script src="/assets/js/plugins/rellax.min.js"></script>
@@ -668,19 +661,6 @@
 <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
 <script src="/assets/js/plugins/parallax.min.js"></script>
 
-
-
-
-
-
-
-
-<!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
-<!--  Google Maps Plugin    -->
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-<script src="/assets/js/soft-design-system.min.js?v=1.0.9" type="text/javascript"></script>
-<script src="assets/js/confirme.js"></script>
 
 
 <script type="text/javascript">

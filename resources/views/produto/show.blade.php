@@ -57,6 +57,9 @@
                         </a>
                     </div>
                 </div>
+                <form action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
+                    @csrf
+                
                 <div class="possition-desc">
                     <H2>{{ $produto->PRODUTO_NOME }}</H2>
                     @if (isset($produto->PRODUTO_DESC))
@@ -70,14 +73,21 @@
                         <h3>R$ {{ $produto->PRODUTO_PRECO }}</h3>
                     @endif
                     @if (isset($produto->ProdutoEstoque->PRODUTO_QTD))
-                        <h3>QTD: {{ $produto->ProdutoEstoque->PRODUTO_QTD }}</h3>
+                        <h3>QTD no Estoque: {{ $produto->ProdutoEstoque->PRODUTO_QTD }}</h3>
                     @else
                         <h3>produto indisponível no momento !!</h3>
                     @endif
+                    @if (isset($produto->ProdutoEstoque->PRODUTO_QTD))
+                        <input type="number" name="quantidade">
+                        <br>
+                    @endif
+                   
                     <!-- <H3>{{ $produto->Categoria->CATEGORIA_NOME }}</H3> -->
                     <button class="btn btn-secondary" type="submit">Compra</button><br>
-                    <a href="{{route('carrinho.store', $produto->PRODUTO_ID)}}" class="btn btn-secondary" type="submit">Adicionar no Carrinho</a><br>
+                    <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
                     <a href="{{ route('produto.index', $produto->PRODUTO_ID) }}">Continuar Comprando</a>
+
+                    </form>
                     <div class="ui-box-component ui-box-component-pdp__visible--desktop">
                         <h2 class="ui-box-component__title">Meios de pagamento</h2>
                         <div class="ui-vip-payment_methods">
