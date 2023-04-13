@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
-                        
+
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     </thead>
                     <tbody>
                         @foreach($carrinho as $car)
-                        
+
                         <tr class="">
                             <td scope="row" >X</td>
                             <td scope="row" ><img src="{{$car->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt="produto" width="100px" height="73px"></td>
@@ -114,7 +114,7 @@
                 <a  class="btn btn-primary tamanhoCarrinho" href="http://">Finalizar Compra</a>
             </div>
         </div>
-        
+
     </section>
     </main>
 @endif

@@ -23,61 +23,88 @@ class Carrinho extends Model
 
     public function somaDesconto($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
-        $desconto=0;
+
+        $somaFinal=0;
+        $resultado = 0;
             for($i=0;$i< count($dados);$i++){
+                $desconto=0;
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
+                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $somaFinal =$desconto * $quantidade1;
+                $resultado += $somaFinal;
             }
-            return number_format(($desconto* $quantidade), 2, ',', '.');
+            return number_format(($resultado), 2, ',', '.');
     }
 
 
 
     public function somaTotal($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
-        $preco=0;
+        $somaFinal=0;
+        $resultado = 0;
+
             for($i=0;$i< count($dados);$i++){
+                $preco=0;
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $preco += $soma[0]['PRODUTO_PRECO'];
+                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $resultado = $preco * $quantidade1;
+                $somaFinal += $resultado;
             }
-            return number_format(($preco*$quantidade), 2, ',', '.');
+            return number_format(($somaFinal), 2, ',', '.');
     }
 
 
 
     public function somaFinal($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
-        $desconto=0;
-        $preco=0;
+        $somaFinal=0;
+        $somaFina2=0;
+        $resultado = 0;
             for($i=0;$i< count($dados);$i++){
+                $desconto=0;
+                $preco=0;
+                $sub =0;
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
                 $preco += $soma[0]['PRODUTO_PRECO'];
+                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $somaFinal= $preco * $quantidade1;
+                $somaFina2= $desconto * $quantidade1;
+                $sub = $somaFinal - $somaFina2;
+                $resultado += $sub;
             }
-            $preco *= $quantidade;
-            $desconto *= $quantidade;
-            return number_format(( $preco - $desconto), 2, ',', '.');
+
+            return number_format(( $resultado), 2, ',', '.');
     }
 
 
 
     public function desPrecoDesconto($id , $quantidade){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
-        $preco=0;
-        $descontoproduto=0;
+        $somaFinal=0;
+        $somaFina2=0;
+        $resultado = 0;
             for($i=0;$i< count($dados);$i++){
+                $desconto=0;
+                $preco=0;
+                $sub =0;
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
-                $descontoproduto += $soma[0]['PRODUTO_DESCONTO'];
+                $desconto += $soma[0]['PRODUTO_DESCONTO'];
                 $preco += $soma[0]['PRODUTO_PRECO'];
+                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $somaFinal= $preco * $quantidade1;
+                $somaFina2= $desconto * $quantidade1;
+                $sub = $somaFinal - $somaFina2;
+                $resultado += $sub;
             }
-            $preco *= $quantidade;
-            $descontoproduto *= $quantidade;
-            $preco -=  $descontoproduto ;
-            $desconto = $preco / 10;
-            return number_format(( $preco - $desconto), 2, ',', '.');
+
+            $desconto = $resultado / 10;
+            return number_format(( $resultado - $desconto), 2, ',', '.');
     }
 
-    
+
     public function somaQTD($quantidade , $preco){
         return number_format(( $preco * $quantidade), 2, ',', '.');
     }
