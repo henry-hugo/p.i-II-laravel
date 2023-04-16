@@ -10,13 +10,27 @@ use Illuminate\Support\Facades\Auth;
 class CarrinhoController extends Controller
 {
     public function store(Request $request , $produto){
-    
-        	Carrinho::create([
+        if($request->quantidade == 'outro'){
+            dd($request->quantidadeSelect);
+            Carrinho::create([
+                'USUARIO_ID'=> Auth::user()->USUARIO_ID,
+                'PRODUTO_ID'=> (int)$produto,
+                'ITEM_QTD'=> (int)$request->quantidadeSelect
+            ]);
+            return redirect(route('carrinho.index'));
+        }else{
+            dd($request->quantidade);
+            Carrinho::create([
                 'USUARIO_ID'=> Auth::user()->USUARIO_ID,
                 'PRODUTO_ID'=> (int)$produto,
                 'ITEM_QTD'=> (int)$request->quantidade
             ]);
             return redirect(route('carrinho.index'));
+        }
+        
+
+   
+        	
         }
         public function index(){
             $carrinho = Carrinho::where('USUARIO_ID' ,Auth::user()->USUARIO_ID)->get();

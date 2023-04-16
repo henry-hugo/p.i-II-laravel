@@ -94,21 +94,21 @@
                 <h2>TOTAL NO CARRINHO</h2>
             </div>
             <div class="border-bottom">
-                <h5>SubTotal : <span class="text-primary">R$ {{$car->somaTotal($carrinho[0]->USUARIO_ID, $car->ITEM_QTD)}}</span></h5>
+                <h5>SubTotal : <span class="text-primary">R$ {{$car->somaTotal($carrinho[0]->USUARIO_ID)}}</span></h5>
             </div>
             <div class="border-bottom">
                 <h5>entrega : <span>Frete Gratis</span></h5>
             </div>
             <div class="border-bottom">
                 <h5>Total no <br> Boleto ou PIX :
-                    <span class="text-success">R$ {{$car->desPrecoDesconto($carrinho[0]->USUARIO_ID , $car->ITEM_QTD)}}</span>
+                    <span class="text-success">R$ {{$car->desPrecoDesconto($carrinho[0]->USUARIO_ID )}}</span>
                 </h5>
             </div>
             <div  class="border-bottom">
-                <h5>Desconto : <span class="text-succes">R$ {{$car->somaDesconto($carrinho[0]->USUARIO_ID , $car->ITEM_QTD)}}</span></h5>
+                <h5>Desconto : <span class="text-succes">R$ {{$car->somaDesconto($carrinho[0]->USUARIO_ID )}}</span></h5>
             </div>
             <div>
-                <h5>Total : <span class="text-primary">R$ {{$car->somaFinal($carrinho[0]->USUARIO_ID , $car->ITEM_QTD)}}</span></h5>
+                <h5>Total : <span class="text-primary">R$ {{$car->somaFinal($carrinho[0]->USUARIO_ID )}}</span></h5>
             </div>
             <div class="btnCenter">
                 <a  class="btn btn-primary tamanhoCarrinho" href="http://">Finalizar Compra</a>

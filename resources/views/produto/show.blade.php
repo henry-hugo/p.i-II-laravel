@@ -73,21 +73,45 @@
                         <h3>R$ {{ $produto->PRODUTO_PRECO }}</h3>
                     @endif
                     @if (isset($produto->ProdutoEstoque->PRODUTO_QTD))
-                        <h3>QTD no Estoque: {{ $produto->ProdutoEstoque->PRODUTO_QTD }}</h3>
+                        <div class="d-flex">
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                            
+                            <h4>Quantidade: </h4>
+                            <div id="alvo">
+                                <select  class="form-select" name="quantidade" id="select">
+                                <option value="1"> 1 Unidade </option>
+                                <option value="2"> 2 Unidade </option>
+                                <option value="3"> 3 Unidade </option>
+                                <option value="4"> 4 Unidade </option>
+                                <option value="5"> 5 Unidade </option>
+                                <option value="outro">Mais Unidades</option>
+                                </select>
+                                <div id="meuDiv">
+                                <i class="bi bi-caret-left-square" onclick="mais()"></i>
+                                <input placeholder="Unidade" min=0 max="{{ $produto->ProdutoEstoque->PRODUTO_QTD }}" id="total" type="number" name="quantidadeSelect">
+                                <i class="bi bi-caret-right-square" onclick="menos()"></i>
+                                
+                                    <button type="button" id="cancel">Cancelar</button>
+                                </div>
+                            </div>
+                            <h4>disponivel: {{ $produto->ProdutoEstoque->PRODUTO_QTD }}</h4>  
+                        </div>
+                        <br>
+                        @if(Auth::check())
+                        <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
+                        </form>
+                        <button class="btn btn-secondary" type="submit">Compra</button><br>
+                        @else
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#loginCadastro"
+                                                    class="btn btn-secondary">Comprar</a><br>
+                        @endif
                     @else
                         <h3>produto indisponível no momento !!</h3>
                     @endif
-                    @if (isset($produto->ProdutoEstoque->PRODUTO_QTD))
-                        <input type="number" name="quantidade">
-                        <br>
-                    @endif
-                   
+                    
                     <!-- <H3>{{ $produto->Categoria->CATEGORIA_NOME }}</H3> -->
-                    <button class="btn btn-secondary" type="submit">Compra</button><br>
-                    <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
+                   
                     <a href="{{ route('produto.index', $produto->PRODUTO_ID) }}">Continuar Comprando</a>
-
-                    </form>
                     <div class="ui-box-component ui-box-component-pdp__visible--desktop">
                         <h2 class="ui-box-component__title">Meios de pagamento</h2>
                         <div class="ui-vip-payment_methods">
@@ -216,6 +240,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        
 
 
     </main>

@@ -13,7 +13,7 @@ class ProdutoController extends Controller
     public function index(){
         $produtos = Produto::all();
         $categorias = Categoria::all();
-        return view('produto.index')->with('categorias',$categorias,)->with('produtos',$produtos);
+        return view('produto.index')->with('produtos',$produtos);
     }
     public function show(Produto $produto){
         // ver os dados do banco  dd($produto);

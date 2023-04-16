@@ -21,7 +21,7 @@ class Carrinho extends Model
     }
 
 
-    public function somaDesconto($id , $quantidade){
+    public function somaDesconto($id ){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
 
         $somaFinal=0;
@@ -39,7 +39,7 @@ class Carrinho extends Model
 
 
 
-    public function somaTotal($id , $quantidade){
+    public function somaTotal($id ){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
         $somaFinal=0;
         $resultado = 0;
@@ -57,7 +57,7 @@ class Carrinho extends Model
 
 
 
-    public function somaFinal($id , $quantidade){
+    public function somaFinal($id ){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
         $somaFinal=0;
         $somaFina2=0;
@@ -81,7 +81,7 @@ class Carrinho extends Model
 
 
 
-    public function desPrecoDesconto($id , $quantidade){
+    public function desPrecoDesconto($id ){
         $dados = Carrinho::where('USUARIO_ID', $id)->get();
         $somaFinal=0;
         $somaFina2=0;

@@ -35,6 +35,30 @@
     <link href="/assets/css/filtro.css" rel="stylesheet" />
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+    <!--   Core JS Files   -->
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+
+
+
+
+    <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+    <script src="/assets/js/plugins/rellax.min.js"></script>
+    <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+    <script src="/assets/js/plugins/tilt.min.js"></script>
+    <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+    <script src="/assets/js/plugins/choices.min.js"></script>
+
+
+    <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+    <script src="/assets/js/plugins/parallax.min.js"></script>
+    <script src="/assets/js/inputQTD.js"></script>
+
+
 
 </head>
 
@@ -139,11 +163,11 @@
                                                 Todas Categoria
                                             </div>
 
-                                            @foreach (\App\Models\Categoria::where('CATEGORIA_ATIVO', 1)->get() as $categoria)
+                                            <!-- @foreach (\App\Models\Categoria::where('CATEGORIA_ATIVO', 1)->get() as $categoria)
                                             <a href="" class="categoriamenu border-radius-md categoriamenu">
                                                 <span class="ps-3">{{$categoria->CATEGORIA_NOME}}</span>
                                             </a>
-                                            @endforeach
+                                            @endforeach -->
 
 
                                         </div>
@@ -320,9 +344,9 @@
     <div class="offcanvas-footer">
         @if(isset($carrinho->ITEM_QTD)) 
             <div class="footerCanvas">
-                <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID , $carrinho->ITEM_QTD)}}</h4>
-                <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID, $carrinho->ITEM_QTD)}}</span></h4>
-                <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID , $carrinho->ITEM_QTD)}}</h4>
+                <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID )}}</h4>
+                <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID)}}</span></h4>
+                <h4>TOTAL: R$ {{$carrinho->somaFinal($carrinho->USUARIO_ID )}}</h4>
                 <div class="buttomCenter">
                     <a href="{{route('carrinho.index')}}" class="btn btn-light tamanho">Ver Carrinho</a>
                     <br>
@@ -630,39 +654,6 @@
         </div>
     </footer>
 </body>
-
-</html>
-
-
-
-
-
-
-
-
-
-<!--   Core JS Files   -->
-<script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
-
-
-
-
-
-<!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
-<script src="/assets/js/plugins/rellax.min.js"></script>
-<!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
-<script src="/assets/js/plugins/tilt.min.js"></script>
-<!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
-<script src="/assets/js/plugins/choices.min.js"></script>
-
-
-<!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
-<script src="/assets/js/plugins/parallax.min.js"></script>
-
-
-
 <script type="text/javascript">
 if (document.getElementById('state1')) {
     const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
@@ -689,4 +680,10 @@ if (document.getElementById('state3')) {
     };
 }
 </script>
+
+</html>
+
+
+
+
 
