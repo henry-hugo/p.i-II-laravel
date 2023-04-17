@@ -18,7 +18,7 @@ Route::post('/',[UsuarioController::class,'store'])->name('registrar');
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
 Route::match(['get','post'],'/categoria/{categoria}',[ProdutoController::class,'categoria'])->name('produto.categoria');
 
-route::post('/carrinho/{produto}',[CarrinhoController::class,'store'])->name('carrinho.store');
+route::post('/carrinho/{produto}',[CarrinhoController::class,'store'])->name('carrinho.store'); 
 route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
 
 Route::get('/', function () {

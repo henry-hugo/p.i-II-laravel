@@ -72,13 +72,27 @@
 
                         <tr class="">
                             <td scope="row" >X</td>
+
+                            @if(isset($car->Produto->ProdutoImagem[0]->IMAGEM_URL))
                             <td scope="row" ><img src="{{$car->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt="produto" width="100px" height="73px"></td>
+                            @else
+                            <td scope="row" ><img src="/assets/img/curved-images/sem-imagem.jpg" alt="produto" width="100px" height="73px"></td>
+                            @endif
+                        
                             <td scope="row" >{{$car->Produto->PRODUTO_NOME}}</td>
                             <td scope="row" >R$ {{$car->Produto->PRODUTO_PRECO}}</td>
                             <td scope="row" >
-                                <input type="button" value="-" onclick="alteraQtdProduto('down')">
-                                <input type="number" id="" step="1" min="0" max="599" name="quantidade" value="{{$car->ITEM_QTD}}" title="Qtd" size="4" placeholder="" inputmode="numeric">
-                                <input type="button" value="+" onclick="alteraQtdProduto('up')">
+                                <form action="">
+                                    
+                                    @if(isset($car->Produto->ProdutoEstoque->PRODUTO_QTD))
+                                    <input type="button" value="-" onclick="menos('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
+                                    <input min="1" max="{{ $car->Produto->ProdutoEstoque->PRODUTO_QTD }}" id="{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}" type="number" name="quantidadeSelect" value="{{$car->ITEM_QTD}}">
+                                    <input type="button" value="+" onclick="mais('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
+                                    @else
+                                    <h5>Nao tem item!!</h5>
+                                    @endif
+                                    
+                                </form>
                             </td>
                             <td scope="row" >R$ {{$car->somaQTD($car->ITEM_QTD, $car->Produto->PRODUTO_PRECO)}}</td>
                         </tr>

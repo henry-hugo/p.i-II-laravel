@@ -72,7 +72,7 @@
                 <nav
                     class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid px-0">
-                        <img src="/assets/img/logo.png" alt="logo" width="80rem">
+                        <a href="{{route('produto.index')}}"><img src="/assets/img/logo.png" alt="logo" width="80rem"></a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -322,10 +322,16 @@
     @if(Auth::check())
     <div class="offcanvas-main" style="overflow: auto;">
     @foreach (\App\Models\Carrinho::where('USUARIO_ID' ,Auth::user()->USUARIO_ID)->get() as $carrinho )
-        <div class="d-flex">
+        <div class="d-flexCarrinho">
+            @if(isset($carrinho->Produto->ProdutoImagem[0]->IMAGEM_URL))
             <div>
                 <img src="{{$carrinho->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt="" width="70px" height="70px">
             </div>
+            @else
+            <div>
+                <img src="/assets/img/curved-images/sem-imagem.jpg" alt="produto" width="100px" height="73px">
+            </div>
+            @endif
             <div class="m-3">
                 {{$carrinho->Produto->PRODUTO_NOME}}
             </div>

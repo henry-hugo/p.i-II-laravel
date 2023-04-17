@@ -16,16 +16,16 @@ $(function() {
 });
 
 
-function mais(){
-    var atual = document.getElementById("total").value;
+function mais(nome){
+    var atual = document.getElementById(nome).value;
     var novo = atual - (-1); //Evitando Concatenacoes
-    document.getElementById("total").value = novo;
+    document.getElementById(nome).value = novo;
   }
   
-  function menos(){
-    var atual = document.getElementById("total").value;
-    if(atual > 0) { //evita números negativos
+  function menos(nome){
+    var atual = document.getElementById(nome).value;
+    if(atual > 1) { //evita números negativos
       var novo = atual - 1;
-      document.getElementById("total").value = novo;
+      document.getElementById(nome).value = novo;
     }
   }

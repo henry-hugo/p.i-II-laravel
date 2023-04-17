@@ -34,6 +34,7 @@
             <div class="container">
                 <div id="tamanho">
                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                        @if(isset($produto->ProdutoImagem[0]->IMAGEM_URL))
                         @foreach ($produto->ProdutoImagem as $imagem)
                             @if ($imagem->IMAGEM_ORDEM == 0)
                                 <div class="carousel-item active">
@@ -47,6 +48,10 @@
                                 </div>
                             @endif
                         @endforeach
+                        @else
+                        <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top"
+                                            alt="...">
+                        @endif
                         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
@@ -61,7 +66,7 @@
                     @csrf
                 
                 <div class="possition-desc">
-                    <H2>{{ $produto->PRODUTO_NOME }}</H2>
+                    <H2>{{ $produto->PRODUTO_NOME }}</H2> 
                     @if (isset($produto->PRODUTO_DESC))
                         <h4 class="price">R$ {{ $produto->PRODUTO_PRECO }}</h4>
                     @endif
@@ -87,7 +92,7 @@
                                 <option value="outro">Mais Unidades</option>
                                 </select>
                                 <div id="meuDiv">
-                                <button type="button" onclick="menos()" class="btn">
+                                <button type="button" onclick="menos('total')" class="btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-square" viewBox="0 0 16 16">
                                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                     <path d="M10.205 12.456A.5.5 0 0 0 10.5 12V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4a.5.5 0 0 0 .537.082z"/>
@@ -96,7 +101,7 @@
                                
                                 <input class="inputSelect btn" placeholder="Unidade" min="1" max="{{ $produto->ProdutoEstoque->PRODUTO_QTD }}" id="total" type="number" name="quantidadeSelect">
                                 
-                                <button type="button" onclick="mais()" class="btn">
+                                <button type="button" onclick="mais('total')" class="btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-square" viewBox="0 0 16 16">
                                         <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                         <path d="M5.795 12.456A.5.5 0 0 1 5.5 12V4a.5.5 0 0 1 .832-.374l4.5 4a.5.5 0 0 1 0 .748l-4.5 4a.5.5 0 0 1-.537.082z"/>
