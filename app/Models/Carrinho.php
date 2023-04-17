@@ -30,7 +30,7 @@ class Carrinho extends Model
                 $desconto=0;
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
-                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $quantidade1 = $dados[$i]['ITEM_QTD'];
                 $somaFinal =$desconto * $quantidade1;
                 $resultado += $somaFinal;
             }
@@ -48,7 +48,7 @@ class Carrinho extends Model
                 $preco=0;
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $preco += $soma[0]['PRODUTO_PRECO'];
-                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $quantidade1 = $dados[$i]['ITEM_QTD'];
                 $resultado = $preco * $quantidade1;
                 $somaFinal += $resultado;
             }
@@ -69,7 +69,7 @@ class Carrinho extends Model
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
                 $preco += $soma[0]['PRODUTO_PRECO'];
-                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $quantidade1 = $dados[$i]['ITEM_QTD'];
                 $somaFinal= $preco * $quantidade1;
                 $somaFina2= $desconto * $quantidade1;
                 $sub = $somaFinal - $somaFina2;
@@ -93,7 +93,7 @@ class Carrinho extends Model
                 $soma = Produto::where('PRODUTO_ID', $dados[$i]['PRODUTO_ID'])->get();
                 $desconto += $soma[0]['PRODUTO_DESCONTO'];
                 $preco += $soma[0]['PRODUTO_PRECO'];
-                $quantidade1 = $dados[0]['ITEM_QTD'];
+                $quantidade1 = $dados[$i]['ITEM_QTD'];
                 $somaFinal= $preco * $quantidade1;
                 $somaFina2= $desconto * $quantidade1;
                 $sub = $somaFinal - $somaFina2;

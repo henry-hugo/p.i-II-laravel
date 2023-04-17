@@ -11,7 +11,7 @@ class CarrinhoController extends Controller
 {
     public function store(Request $request , $produto){
         if($request->quantidade == 'outro'){
-            dd($request->quantidadeSelect);
+           
             Carrinho::create([
                 'USUARIO_ID'=> Auth::user()->USUARIO_ID,
                 'PRODUTO_ID'=> (int)$produto,
@@ -19,7 +19,7 @@ class CarrinhoController extends Controller
             ]);
             return redirect(route('carrinho.index'));
         }else{
-            dd($request->quantidade);
+           
             Carrinho::create([
                 'USUARIO_ID'=> Auth::user()->USUARIO_ID,
                 'PRODUTO_ID'=> (int)$produto,

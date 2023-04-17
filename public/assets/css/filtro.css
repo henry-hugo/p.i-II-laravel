@@ -223,3 +223,15 @@ body, html {
   display: block;
   text-align: center;
 }
+.inputSelect{
+  padding-left: 40px;
+  margin: 0;
+  text-align: center;
+  width: 6rem;
+}
+#meuDiv{
+  width: 260px;
+}
+#cancel{
+  padding-left: 12rem;
+}

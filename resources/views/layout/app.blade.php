@@ -330,7 +330,7 @@
                 {{$carrinho->Produto->PRODUTO_NOME}}
             </div>
             <div>
-                <h6 class="ms-4">QTD <span>+ </span><span>{{$carrinho->ITEM_QTD}}</span><span> -</span></h6>
+                <h6 class="ms-4">QTD: <span>{{$carrinho->ITEM_QTD}}</span></h6>
                 <h5 class="ms-4"> R${{$carrinho->somaQTD($carrinho->ITEM_QTD, $carrinho->Produto->PRODUTO_PRECO)}}</h5>
             </div>
             
