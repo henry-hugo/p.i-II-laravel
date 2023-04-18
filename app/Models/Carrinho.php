@@ -2,11 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Produto;
-use App\Models\Carrinho;
 
 
 class Carrinho extends Model
@@ -18,6 +15,13 @@ class Carrinho extends Model
 
     public function Produto(){
         return $this->belongsTo(Produto::class, 'PRODUTO_ID', 'PRODUTO_ID');
+    }
+
+    protected function setKeysForSaveQuery($query)
+    {
+        $query->where('USUARIO_ID', $this->getAttribute('USUARIO_ID'))
+                ->where ('PRODUTO_ID', $this->getAttribute('PRODUTO_ID'));
+        return $query; 
     }
 
 

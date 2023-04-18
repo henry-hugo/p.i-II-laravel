@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Categoria;
-use App\Models\Carrinho;
-use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
 {

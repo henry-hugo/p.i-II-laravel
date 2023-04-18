@@ -21,6 +21,8 @@ Route::match(['get','post'],'/categoria/{categoria}',[ProdutoController::class,'
 route::post('/carrinho/{produto}',[CarrinhoController::class,'store'])->name('carrinho.store'); 
 route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
 
+route::get('/carrinho/pagamento', [CarrinhoController::class, 'pagamento'])->name('carrinho.pagamento');
+
 Route::get('/', function () {
     return view('produto.index');
 })->middleware(['auth', 'verified'])->name('produto.index');

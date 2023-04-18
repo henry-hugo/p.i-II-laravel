@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.app') 
 @section('main')
 @if(Auth::check())
 <header class="header-2">
@@ -39,7 +39,13 @@
             <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
         </svg>
         <div>
-        <a href="http://"><h2 class="text-body ps-4">CHECKOUT</h2></a>
+        <a href="{{route('carrinho.pagamento')}}"><h2 class="text-body ps-4">PAGAMENTO</h2></a>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-arrow-right-short ps-3" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+        </svg>
+        <div>
+            <a href="http://"><h2 class="text-body ps-4">CHECKOUT</h2></a>
         </div>
     </div>
 
@@ -54,8 +60,7 @@
     </div>
     <section class="viwTabela">
         <div class="tamanhoTabela">
-            <form action="" method="post">
-                @csrf
+            
                 <table class="table">
                     <thead>
                         <tr>
@@ -69,6 +74,8 @@
                     </thead>
                     <tbody>
                         @foreach($carrinho as $car)
+                        <form action="{{route('carrinho.store', $car->Produto->PRODUTO_ID)}}" method="post">
+                            @csrf
 
                         <tr class="">
                             <td scope="row" >X</td>
@@ -85,9 +92,9 @@
                                 <form action="">
                                     
                                     @if(isset($car->Produto->ProdutoEstoque->PRODUTO_QTD))
-                                    <input type="button" value="-" onclick="menos('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
+                                    <input type="submit" value="-" onclick="menos('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
                                     <input min="1" max="{{ $car->Produto->ProdutoEstoque->PRODUTO_QTD }}" id="{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}" type="number" name="quantidadeSelect" value="{{$car->ITEM_QTD}}">
-                                    <input type="button" value="+" onclick="mais('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
+                                    <input type="submit" value="+" onclick="mais('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
                                     @else
                                     <h5>Nao tem item!!</h5>
                                     @endif
@@ -96,12 +103,13 @@
                             </td>
                             <td scope="row" >R$ {{$car->somaQTD($car->ITEM_QTD, $car->Produto->PRODUTO_PRECO)}}</td>
                         </tr>
+                
+                        </form>
 
                         @endforeach
                     </tbody>
                 </table>
-                <input type="button" value="Atualizar Compra">
-            </form>
+               
         </div>
         <div class="notaFinal">
             <div>
@@ -125,7 +133,7 @@
                 <h5>Total : <span class="text-primary">R$ {{$car->somaFinal($carrinho[0]->USUARIO_ID )}}</span></h5>
             </div>
             <div class="btnCenter">
-                <a  class="btn btn-primary tamanhoCarrinho" href="http://">Finalizar Compra</a>
+                <a  class="btn btn-primary tamanhoCarrinho" href="{{route('carrinho.pagamento')}}">Finalizar Compra</a>
             </div>
         </div>
 
