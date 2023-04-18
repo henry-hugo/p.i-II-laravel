@@ -419,6 +419,55 @@
         </div>
     </div>
 
+
+        <!-- Modal do cadastro adm -->
+        <div class="modal fade" id="staticBackdropTeste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="was-validated" action="{{ route('register') }}" method="POST">
+                        @csrf
+                        <div class="modal-header">
+                            <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Cadastro</h3>
+                        </div>
+                        <div>
+                            <h3 class="modal-title" id="staticBackdropLabel"></h3>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                                <input type="text" class="form-control" name="nome" required 
+                                    id="categoria_name" placeholder="abc">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControEMAIL" class="form-label"> Email</label>
+                                <input type="email" class="form-control" name="email" required 
+                                    placeholder="abc@gmail.com">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="exampleFormControsenha" class="form-label"> Senha</label>
+                                <input type="password" class="form-control" name="senha" size=15 
+                                 required placeholder="****">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password_confirmation" class="form-label">Senha</label>
+
+                                <input id="password_confirmation" class="form-control"
+                                type="password"
+                                name="password_confirmation" required autocomplete="new-password" placeholder="****">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <input type="submit" value="enviar" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal do login -->
     <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -474,6 +523,8 @@
                         <hr>
                         <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                         class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropTeste"
+                                        class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se adm</a>
                         <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
                                         class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
                         <div class="modal-footer">

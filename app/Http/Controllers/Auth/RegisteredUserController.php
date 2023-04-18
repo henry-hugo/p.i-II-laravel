@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Administrador;
 use App\Models\Produto;
 use App\Models\Categoria;
 use App\Providers\RouteServiceProvider;
@@ -39,15 +40,27 @@ class RegisteredUserController extends Controller
         //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
-        $user = User::create([   
-            'USUARIO_NOME' => $request->USUARIO_NOME,
-            'USUARIO_EMAIL' => $request->USUARIO_EMAIL,
-            'USUARIO_SENHA' => Hash::make($request->USUARIO_SENHA),
-            'USUARIO_CPF' => $request->USUARIO_CPF,
-        ]);
+        if($request->USUARIO_CPF){
+            dd($request->USUARIO_CPF);
+            $user = User::create([   
+                'USUARIO_NOME' => $request->USUARIO_NOME,
+                'USUARIO_EMAIL' => $request->USUARIO_EMAIL,
+                'USUARIO_SENHA' => Hash::make($request->USUARIO_SENHA),
+                'USUARIO_CPF' => $request->USUARIO_CPF,
+            ]);
+        }else{
+            
+            $user = Administrador::create([
+                'ADM_NOME' => $request->nome,
+                'ADM_EMAIL' => $request->email,
+                'ADM_SENHA' => Hash::make($request->senha),
+                'ADM_ATIVO'=> 1,
+                 ]);
+            
+        }
 
         event(new Registered($user));
-
+       
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
