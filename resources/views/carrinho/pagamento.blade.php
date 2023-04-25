@@ -51,7 +51,8 @@
 <main class="pagamentoMain container">
     <section class="pagamento">
         <div class="form-pagamento">
-            <form method="POST">
+            <form action="{{route('finalizar',Auth::user()->USUARIO_ID)}}" method="POST">
+                @csrf
                 <h1>Meios de Pagamento</h1>
                 <img src="/assets/img/pagamento/1.png" width="50px" height="50px">
                 <img src="/assets/img/pagamento/2.png" width="50px" height="50px">
@@ -94,41 +95,75 @@
 
         </div>
     </section>
-    <section class="endereco">
-        <div class="form-endereco">
-            <form method="POST">
-                <h1>Endereço de Entrega</h1><br>
+    @if (!\App\Models\Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->count())
+        <section class="endereco">
+            <div class="form-endereco">
+                <form action="{{route('endereco',Auth::user()->USUARIO_ID)}}" method="POST">
+                    @csrf
+                    <h1>Endereço de Entrega</h1><br>
+                        <div class="form-1000">
+                        <label>Nome:</label>
+                        <input name="nome" type="text">
+                    </div>  
                     <div class="form-1000">
-                    <label>Nome:</label>
-                    <input type="text">
-                </div>
-                <div class="form-1000">
-                    <label>Sobrenome:</label>
-                    <input type="text">
-                </div>
-                <div class="form-1000">
-                    <label>CEP:</label>
-                    <input type="text">
-                </div>
-                
-                <div class="form-1000">
-                    <label>Endereço:</label>
-                    <input type="text" placeholder="Rua, Avenida...">
-                <div class="form-500">
-                    <input style="margin-top: -1px;"  type="text" placeholder="Numero">
-                    <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="Complemento">
-                </div>
-                <div class="form-500">
-                    <input style="margin-top: -1px;"  type="text" placeholder="Cidade">
-                    <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="Estado">
-                    <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="Bairro">
-                </div>
-                    <div class="form-1000" style="position: relative;top: 165px;">
-                    <button class="btn btn-primary tamanhoBntE" type="submit" >Confirmar</button>                
-                </div>
-                </form>
+                        <label>CEP:</label>
+                        <input name="cep" type="text">
+                    </div>
+                    
+                    <div class="form-1000">
+                        <label>Endereço:</label>
+                        <input type="text" name="endereco" placeholder="Rua, Avenida...">
+                    </div>
+                    <div class="form-500">
+                        <input style="margin-top: -1px;" name="numero"  type="text" placeholder="Numero">
+                        <input style="margin-left: -1px;margin-top: -1px;" name="complemento"  type="text" placeholder="Complemento">
+                    </div>
+                    <div class="form-500">
+                        <select id="estado" name="estado" onchange="buscaCidades(this.value)">
+                            <option value="">Selecione o Estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <br />
+                        <select id="cidade" name="cidade">
+                            <option value="">Cidade <i>(estado)</i></option>
+                        </select>
+                        <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="Bairro">
+                    </div>
+                        <div class="form-1000" style="position: relative;top: 165px;">
+                        <button class="btn btn-primary tamanhoBntE" type="submit" >Confirmar</button>                
+                    </div>
+                    </form>
 
-        </div>
-    </section>
+            </div>
+        </section>
+       
+    @endif
+
 </main>
 @endsection

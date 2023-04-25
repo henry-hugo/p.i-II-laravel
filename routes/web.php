@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\PedidoController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -22,6 +24,11 @@ route::post('/carrinho/{produto}',[CarrinhoController::class,'store'])->name('ca
 route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
 
 route::get('/carrinho/pagamento', [CarrinhoController::class, 'pagamento'])->name('carrinho.pagamento');
+
+route::post('/carrinho/pagamento/{USUARIO_ID}',[EnderecoController::class, 'store'])->name('endereco');
+
+route::post('/carrinho/pagamento/{USUARIO_ID}',[PedidoController::class, 'store'])->name('finalizar');
+
 
 Route::get('/', function () {
     return view('produto.index');
