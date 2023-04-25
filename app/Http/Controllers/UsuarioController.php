@@ -24,7 +24,7 @@ class UsuarioController extends Controller
     {
         $produtos = Produto::all();
         $categorias = Categoria::all();
-        return view('produto.index')->with('categorias',$categorias,)->with('produtos',$produtos);
+        return view('produto.index', compact('categorias', 'produtos'));
     }
 
     /**

@@ -34,6 +34,6 @@ class PedidoController extends Controller
             ]);
         }
 
-        return redirect(route('carrinho.index'));
+        return redirect(route('carrinho.checkout'));
     }
 }

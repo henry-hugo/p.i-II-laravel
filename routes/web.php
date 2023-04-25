@@ -25,9 +25,11 @@ route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.in
 
 route::get('/carrinho/pagamento', [CarrinhoController::class, 'pagamento'])->name('carrinho.pagamento');
 
-route::post('/carrinho/pagamento/{USUARIO_ID}',[EnderecoController::class, 'store'])->name('endereco');
+route::post('/endereco/{USUARIO_ID}',[EnderecoController::class, 'store'])->name('endereco');
 
 route::post('/carrinho/pagamento/{USUARIO_ID}',[PedidoController::class, 'store'])->name('finalizar');
+
+route::get('/checkout',[CarrinhoController::class, 'checkout'])->name('carrinho.checkout');
 
 
 Route::get('/', function () {

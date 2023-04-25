@@ -1,4 +1,4 @@
-@extends('layout.app') 
+@extends('layout.app')
 @section('main')
 <header class="header-2">
     <div class="page-header min-vh-75 relative" style="background-image: url('/assets/img/curved-images/pagamento.jpg')">
@@ -48,53 +48,7 @@
         </div>
     </div>
 </nav>
-<main class="pagamentoMain container">
-    <section class="pagamento">
-        <div class="form-pagamento">
-            <form action="{{route('finalizar',Auth::user()->USUARIO_ID)}}" method="POST">
-                @csrf
-                <h1>Meios de Pagamento</h1>
-                <img src="/assets/img/pagamento/1.png" width="50px" height="50px">
-                <img src="/assets/img/pagamento/2.png" width="50px" height="50px">
-                <img src="/assets/img/pagamento/3.png" width="50px" height="50px">
-                <img src="/assets/img/pagamento/4.png" width="50px" height="50px">
-                <img src="/assets/img/pagamento/5.png" width="50px" height="50px">
-                <img src="/assets/img/pagamento/6.png" width="50px" height="50px">
-                <div class="form-100">
-                    <label>Nome:</label>
-                    <input type="text">
-                </div>
-                <div class="form-100">
-                    <label>Sobrenome:</label>
-                    <input type="text">
-                </div>
-                <div class="form-100">
-                    <label>Email:</label>
-                    <input type="text">
-                </div>
-                <div class="form-100">
-                    <label>Telefone:</label>
-                    <input type="text">
-                </div>
-                <div class="form-100">
-                    <label>Dados do Cartão:</label>
-                    <input type="text" placeholder="1234 1234 1234 1234">
-                <div class="form-50">
-                    <input style="margin-top: -1px;"  type="text" placeholder="12/23">
-                    <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="CVC">
-                </div>
-                </div>
-                <div class="form-100">
-                    <input type="text" placeholder="Nome no cartão">
-                </div>
-                <div class="form-100">
-                    <button class="btn btn-primary tamanhoBntP" type="submit" >Pagar</button>    
-                             
-                </div>
-                </form>
-
-        </div>
-    </section>
+<div class="pagamentoMain container">
     @if (!\App\Models\Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->count())
         <section class="endereco">
             <div class="form-endereco">
@@ -162,8 +116,40 @@
 
             </div>
         </section>
-       
+    @else
+    <section class="pagamento">
+        <div class="form-pagamento">
+            <form action="{{route('finalizar',Auth::user()->USUARIO_ID)}}" method="POST">
+                @csrf
+                <h1> Pagamento</h1>
+                <img src="/assets/img/pagamento/1.png" width="50px" height="50px">
+                <img src="/assets/img/pagamento/2.png" width="50px" height="50px">
+                <img src="/assets/img/pagamento/3.png" width="50px" height="50px">
+                <img src="/assets/img/pagamento/4.png" width="50px" height="50px">
+                <img src="/assets/img/pagamento/5.png" width="50px" height="50px">
+                <img src="/assets/img/pagamento/6.png" width="50px" height="50px">
+        
+                <div class="form-100">
+                    <label>Dados do Cartão:</label>
+                    <input type="text" placeholder="1234 1234 1234 1234">
+                <div class="form-50">
+                    <input style="margin-top: -1px;"  type="text" placeholder="12/23">
+                    <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="CVC">
+                </div>
+                </div>
+                <div class="form-100">
+                    <input type="text" placeholder="Nome no cartão">
+                </div>
+                <div class="form-100">
+                    <button class="btn btn-primary tamanhoBntP" type="submit" >Pagar</button>    
+                             
+                </div>
+                </form>
+
+        </div>
+    </section>
+
+</div>
     @endif
 
-</main>
 @endsection

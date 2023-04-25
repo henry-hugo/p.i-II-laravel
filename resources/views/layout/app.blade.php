@@ -284,7 +284,8 @@
         </div>
         <div class="text-center my-2">
             @if(Auth::check())
-            {{Auth::user()->USUARIO_EMAIL}} 
+            {{Auth::user()->USUARIO_EMAIL}}<br>
+            <a href="{{route('carrinho.checkout')}}">Pedidos</a>
             @else
             <p>cadastre-se</p>
             @endif
@@ -322,6 +323,7 @@
     @if(Auth::check())
     <div class="offcanvas-main" style="overflow: auto;">
     @foreach (\App\Models\Carrinho::where('USUARIO_ID' ,Auth::user()->USUARIO_ID)->get() as $carrinho )
+    @if($carrinho['ITEM_QTD'] > 0)
         <div class="d-flexCarrinho">
             @if(isset($carrinho->Produto->ProdutoImagem[0]->IMAGEM_URL))
             <div>
@@ -343,7 +345,7 @@
         </div>
           
           <hr class="border-bottom">
-          
+        @endif
       @endforeach
     </div>
 
@@ -356,7 +358,7 @@
                 <div class="buttomCenter">
                     <a href="{{route('carrinho.index')}}" class="btn btn-light tamanho">Ver Carrinho</a>
                     <br>
-                    <button type="submit" class="btn btn-primary tamanho">Finalizar Compra</button>
+                    <a href="{{route('carrinho.pagamento')}}" type="submit" class="btn btn-primary tamanho">Finalizar Compra</a>
                 </div>
             </div>
         @endif

@@ -74,6 +74,7 @@
                     </thead>
                     <tbody>
                         @foreach($carrinho as $car)
+                        @if($car['ITEM_QTD'] > 0)
                         <form action="{{route('carrinho.store', $car->Produto->PRODUTO_ID)}}" method="post">
                             @csrf
 
@@ -105,7 +106,7 @@
                         </tr>
                 
                         </form>
-
+                        @endif
                         @endforeach
                     </tbody>
                 </table>
