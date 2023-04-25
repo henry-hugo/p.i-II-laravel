@@ -384,7 +384,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
                                 <input type="text" class="form-control" name="USUARIO_NOME" required 
-                                    id="categoria_name" placeholder="abc">
+                                    placeholder="abc">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
@@ -400,7 +400,7 @@
                             <div class="mb-3">
                                 <label for="password_confirmation" class="form-label">Senha</label>
 
-                                <input id="password_confirmation" class="form-control"
+                                <input class="form-control"
                                 type="password"
                                 name="password_confirmation" required autocomplete="new-password" placeholder="****">
                             </div>
@@ -439,7 +439,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
                                 <input type="text" class="form-control" name="nome" required 
-                                    id="categoria_name" placeholder="abc">
+                                    placeholder="abc">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>

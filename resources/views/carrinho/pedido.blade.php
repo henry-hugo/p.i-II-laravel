@@ -50,8 +50,8 @@
     </section>
     <section>
         <div class="container">
-            <h1 class="text-center">pedido</h1>
-            <div class="viwTabela">
+            <h1 class="text-center">PEDIDO</h1>
+            <div class="viwTabela justify-content-center">
                 <div class="tamanhoTabela">
             
                     <table class="table">
