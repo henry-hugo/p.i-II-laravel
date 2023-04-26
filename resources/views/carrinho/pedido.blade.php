@@ -53,7 +53,7 @@
             <h1 class="text-center">PEDIDO</h1>
             <div class="viwTabela justify-content-center">
                 <div class="tamanhoTabela">
-            
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -75,7 +75,12 @@
                                     @endif
                                 </td>
                                 <td>{{$pedi->PEDIDO_DATA}}</td>
-                                <td><a href="http://">Ver</a></td>
+                                <td>
+                                    <form action="{{route('carrinho.pedido', $pedi->PEDIDO_ID)}}" method="post">
+                                        @csrf
+                                        <input class="btn" type="submit" value="Ver">
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>
@@ -84,5 +89,5 @@
             </div>
         </div>
     </section>
-   
+
 @endsection

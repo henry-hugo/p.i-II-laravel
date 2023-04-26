@@ -17,7 +17,7 @@
 
 
 
-    
+
 
     <!-- Nucleo Icons -->
     <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -193,33 +193,33 @@
                                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                           </svg> &ensp;{{Auth::user()->USUARIO_NOME}}</a>
                                         </li>
-                                        
+
                                         <li class="nav-item my-auto ms-3 ms-lg-0">
                                             <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                                                     <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                                                 </svg>
-                                            </a> 
-                                        
-                                        
+                                            </a>
+
+
                                         </li>
-                                
+
                                 @else
-                                
+
                                     <li class="nav-item my-auto ms-3 ms-lg-0">
                                         <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                             class="btn btn-sm btn-outline-primary btn-round mb-0 me-1 mt-2 mt-md-0">cadastre-se</a>
                                     </li>
-    
+
                                     <li class="nav-item my-auto ms-3 ms-lg-0">
-    
+
                                         <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
                                             class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Login</a>
-    
+
                                     </li>
-                                
+
                                 @endif
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -244,7 +244,7 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="email" required 
+                                <input type="email" class="form-control" name="email" required
                                     placeholder="abc@gmail.com">
                             </div>
                             <div class="mb-3">
@@ -284,22 +284,24 @@
         </div>
         <div class="text-center my-2">
             @if(Auth::check())
-            {{Auth::user()->USUARIO_EMAIL}}<br>
+            <a href="http://">Perfil</a>
+            <br>
             <a href="{{route('carrinho.checkout')}}">Pedidos</a>
             @else
             <p>cadastre-se</p>
             @endif
-        </div>
-        <div>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
 
-            <x-dropdown-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                sair
-            </x-dropdown-link>
-        </form></a>
+            <div>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        sair
+                    </x-dropdown-link>
+                </form></a>
+            </div>
         </div>
     </div>
   </div>
@@ -307,7 +309,7 @@
 <!-- offcanvas do carrinho -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" >
     <div class="offcanvas-header">
-            <h2 id="offcanvasRightLabel" class="ms-5" >Seu Carrinho</h2>  
+            <h2 id="offcanvasRightLabel" class="ms-5" >Seu Carrinho</h2>
         <div>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -341,16 +343,16 @@
                 <h6 class="ms-4">QTD: <span>{{$carrinho->ITEM_QTD}}</span></h6>
                 <h5 class="ms-4"> R${{$carrinho->somaQTD($carrinho->ITEM_QTD, $carrinho->Produto->PRODUTO_PRECO)}}</h5>
             </div>
-            
+
         </div>
-          
+
           <hr class="border-bottom">
         @endif
       @endforeach
     </div>
 
     <div class="offcanvas-footer">
-        @if(isset($carrinho->ITEM_QTD)) 
+        @if(isset($carrinho->ITEM_QTD))
             <div class="footerCanvas">
                 <h4 class="text-success">DESCONTO: R$ {{$carrinho->somaDesconto($carrinho->USUARIO_ID )}}</h4>
                 <h4>PREÇO:<span class="price"> R$ {{$carrinho->somaTotal($carrinho->USUARIO_ID)}}</span></h4>
@@ -383,18 +385,18 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="USUARIO_NOME" required 
+                                <input type="text" class="form-control" name="USUARIO_NOME" required
                                     placeholder="abc">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="USUARIO_EMAIL" required 
+                                <input type="email" class="form-control" name="USUARIO_EMAIL" required
                                     placeholder="abc@gmail.com">
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
-                                <input type="password" class="form-control" name="USUARIO_SENHA" size=15 
+                                <input type="password" class="form-control" name="USUARIO_SENHA" size=15
                                  required placeholder="****">
                             </div>
                             <div class="mb-3">
@@ -404,7 +406,7 @@
                                 type="password"
                                 name="password_confirmation" required autocomplete="new-password" placeholder="****">
                             </div>
-            
+
                             <div class="mb-3">
                                 <label for="exampleFormControcpf" class="form-label"> CPF</label>
                                 <input type="number" class="form-control" name="USUARIO_CPF" required id="cpf"
@@ -439,18 +441,18 @@
                             <h3 class="modal-title" id="staticBackdropLabel"></h3>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="nome" required 
+                                <input type="text" class="form-control" name="nome" required
                                     placeholder="abc">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControEMAIL" class="form-label"> Email</label>
-                                <input type="email" class="form-control" name="email" required 
+                                <input type="email" class="form-control" name="email" required
                                     placeholder="abc@gmail.com">
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="exampleFormControsenha" class="form-label"> Senha</label>
-                                <input type="password" class="form-control" name="senha" size=15 
+                                <input type="password" class="form-control" name="senha" size=15
                                  required placeholder="****">
                             </div>
                             <div class="mb-3">
@@ -496,7 +498,7 @@
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                 <input type="submit" value="enviar" class="btn btn-primary"  id="myButton">
-                            
+
                         </div>
                         <div id="myLoadingIndicator" style="display:none;" class="containerLoad">
                             <div class="ring"></div>
@@ -520,7 +522,7 @@
                         <div class="modal-header">
                             <h3 class="modal-title text-center mx-auto" id="staticBackdropLabel">Junte-se hoje à Foxtrot</h3>
                         </div>
-                        
+
                         <div class="mb-3 text-center">
                             <h4>Vantagens</h4>
                         </div>

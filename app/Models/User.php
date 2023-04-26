@@ -26,7 +26,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-  
+
 
     /**
      * The attributes that should be cast.
@@ -38,4 +38,8 @@ class User extends Authenticatable
     ];
 
     public $timestamps = false;
+
+    public function Endereco(){
+        return $this->belongsTo(Endereco::class, 'USUARIO_ID','USUARIO_ID');
+    }
 }
