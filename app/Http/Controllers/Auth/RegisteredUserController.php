@@ -41,7 +41,6 @@ class RegisteredUserController extends Controller
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
         if($request->USUARIO_CPF){
-            dd($request->USUARIO_CPF);
             $user = User::create([   
                 'USUARIO_NOME' => $request->USUARIO_NOME,
                 'USUARIO_EMAIL' => $request->USUARIO_EMAIL,

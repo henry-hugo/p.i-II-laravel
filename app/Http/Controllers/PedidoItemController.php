@@ -12,10 +12,9 @@ class PedidoItemController extends Controller
     public function index($pedido){
 
         $pedidos = Pedido::where('PEDIDO_ID', $pedido)->get();
-
-
         $enderecos = Endereco::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->get();
-        return view ('carrinho.show')->with('enderecos', $enderecos);
+
+        return view ('carrinho.show')->with('enderecos', $enderecos)->with('pedidos' , $pedidos);
 
     }
 }

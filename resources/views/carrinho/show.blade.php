@@ -36,7 +36,11 @@
             <div class="tamanhoTabela">
                 <div>
                     <h4>Endereço de Entrega</h4>
-                    
+                    <p>{{$enderecos[0]->ENDERECO_NOME}}</p>
+                    <p>{{$enderecos[0]->ENDERECO_LOGRADOURO}} - {{$enderecos[0]->ENDERECO_COMPLEMENTO}} - N°{{$enderecos[0]->ENDERECO_NUMERO}} - {{$enderecos[0]->ENDERECO_CIDADE}} - {{$enderecos[0]->ENDERECO_ESTADO}} - {{$enderecos[0]->ENDERECO_CEP}}  </p>
+                </div>
+                <div>
+
                 </div>
             </div>
         </div>
