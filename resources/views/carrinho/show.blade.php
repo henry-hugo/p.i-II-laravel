@@ -34,7 +34,10 @@
         <h1 class="text-center">PEDIDO</h1>
         <div class="viwTabela justify-content-center">
             <div class="tamanhoTabela">
-                <h1>{{$endereco}}</h1>
+                <div>
+                    <h4>Endereço de Entrega</h4>
+                    
+                </div>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ class PedidoItemController extends Controller
 
 
         $enderecos = Endereco::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->get();
-        return view ('carrinho.show')->with('endereco', $endereco);
+        return view ('carrinho.show')->with('enderecos', $enderecos);
 
     }
 }
