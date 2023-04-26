@@ -416,6 +416,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                             <input type="submit" value="enviar" class="btn btn-primary">
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -493,8 +494,15 @@
                              placeholder="****">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <input type="submit" value="enviar" class="btn btn-primary">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <input type="submit" value="enviar" class="btn btn-primary"  id="myButton">
+                            
+                        </div>
+                        <div id="myLoadingIndicator" style="display:none;" class="containerLoad">
+                            <div class="ring"></div>
+                            <div class="ring"></div>
+                            <div class="ring"></div>
+                            <span class="loading"></span>
                         </div>
                     </form>
                 </div>
@@ -739,6 +747,7 @@ if (document.getElementById('state3')) {
     };
 }
 </script>
+<script src="/assets/js/load.js"></script>
 
 </html>
 
