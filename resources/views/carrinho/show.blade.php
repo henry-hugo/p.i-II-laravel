@@ -40,12 +40,27 @@
                     <p>{{$enderecos[0]->ENDERECO_LOGRADOURO}} - {{$enderecos[0]->ENDERECO_COMPLEMENTO}} - N°{{$enderecos[0]->ENDERECO_NUMERO}} - {{$enderecos[0]->ENDERECO_CIDADE}} - {{$enderecos[0]->ENDERECO_ESTADO}} - {{$enderecos[0]->ENDERECO_CEP}}  </p>
                 </div>
                 <section>
-                    @foreach($produtos as $produto)
-                    <div>
-                        <P>{{$produto->Produto->PRODUTO_NOME}}</P>
-                        <p>{{$produto->Produto->PRODUTO_DESC}}</p>
-                    </div>
-                    @endforeach
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th  scope="col">IMAGEM</th>
+                            <th  scope="col">PRODUTO</th>
+                            <th  scope="col">DESCRIÇÃO</th>
+                            <th  scope="col">PREÇO</th>
+                            </tr>
+                        </thead>
+                        @foreach($produtos as $produto)
+                            <tr>
+                                <td><img src="{{$produto->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="100px" alt=""></td>
+                                <td scope="row">{{$produto->Produto->PRODUTO_NOME}}</td>
+                                <td scope="row">{{$produto->Produto->PRODUTO_DESC}}</td>
+                                <td scope="row">{{$produto->Produto->PRODUTO_PRECO}}</td>
+                            </tr>
+                        @endforeach
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </section>
             </div>
         </div>
