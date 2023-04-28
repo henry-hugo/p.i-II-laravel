@@ -135,6 +135,7 @@
             </div>
             <div class="btnCenter">
                 <a  class="btn btn-primary tamanhoCarrinho" href="{{route('carrinho.pagamento')}}">Finalizar Compra</a>
+                <a class="btn btn-secondary tamanhoCarrinho" href="{{route('produto.index')}}">Continuar Comprando</a>
             </div>
         </div>
 

@@ -30,7 +30,7 @@ route::post('/endereco/{USUARIO_ID}',[EnderecoController::class, 'store'])->name
 
 route::post('/carrinho/pagamento/{USUARIO_ID}',[PedidoController::class, 'store'])->name('finalizar');
 
-route::get('/checkout',[CarrinhoController::class, 'checkout'])->name('carrinho.checkout');
+route::get('/carrinho/checkout',[CarrinhoController::class, 'checkout'])->name('carrinho.checkout');
 
 route::post('/pedido/{pedido}',[PedidoItemController::class, 'index'])->name('carrinho.pedido');
 

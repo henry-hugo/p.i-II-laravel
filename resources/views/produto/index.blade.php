@@ -105,7 +105,7 @@
                         </div>
                         <div class="centerfiltro">
                             <label for="pesquisa">Pesquisa:</label>
-                            <input class="form-control" style="width: 15rem;" id="" type="search"
+                            <input class="form-control" style="width: 18rem;"  type="search"
                                 placeholder="Procurar..">
                         </div>
                     </div>

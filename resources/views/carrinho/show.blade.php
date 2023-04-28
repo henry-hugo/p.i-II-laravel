@@ -34,14 +34,19 @@
         <h1 class="text-center">PEDIDO</h1>
         <div class="viwTabela justify-content-center">
             <div class="tamanhoTabela">
-                <div>
+                <div class="enderecos">
                     <h4>Endereço de Entrega</h4>
                     <p>{{$enderecos[0]->ENDERECO_NOME}}</p>
                     <p>{{$enderecos[0]->ENDERECO_LOGRADOURO}} - {{$enderecos[0]->ENDERECO_COMPLEMENTO}} - N°{{$enderecos[0]->ENDERECO_NUMERO}} - {{$enderecos[0]->ENDERECO_CIDADE}} - {{$enderecos[0]->ENDERECO_ESTADO}} - {{$enderecos[0]->ENDERECO_CEP}}  </p>
                 </div>
-                <div>
-
-                </div>
+                <section>
+                    @foreach($produtos as $produto)
+                    <div>
+                        <P>{{$produto->Produto->PRODUTO_NOME}}</P>
+                        <p>{{$produto->Produto->PRODUTO_DESC}}</p>
+                    </div>
+                    @endforeach
+                </section>
             </div>
         </div>
     </div>

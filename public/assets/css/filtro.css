@@ -488,7 +488,7 @@ body, html {
 }
 .carrinhoAtivo{
   color: #FF0080;
-  border-bottom: solid 2px #825fa5;
+  border-bottom: solid 3px #825fa5;
 }
 .viwTabela{
   display: flex;
@@ -738,6 +738,9 @@ section.endereco{
       transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
 }
 }
-
+.enderecos{
+  border: solid 3px #cb0c9f;
+  text-align: center;
+}
 
 

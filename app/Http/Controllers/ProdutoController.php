@@ -20,8 +20,8 @@ class ProdutoController extends Controller
     }
 
     public function categoria(Request $request, $categoria){
-        $produtos = Produto::all()->where("CATEGORIA_ID", $categoria);
-     
+        $produtos = Produto::where('PRODUTO_ATIVO', 1)->where("CATEGORIA_ID", $categoria)->get();
+        
         return view('produto.categoria')->with('produtos', $produtos);
     }
 

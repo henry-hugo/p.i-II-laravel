@@ -115,7 +115,6 @@
                         @if(Auth::check())
                         <button class="btn btn-secondary" type="submit">Adicionar no Carrinho</button><br>
                         </form>
-                        <button class="btn btn-secondary" type="submit">Compra</button><br>
                         @else
                         <a type="button" data-bs-toggle="modal" data-bs-target="#loginCadastro"
                                                     class="btn btn-secondary">Comprar</a><br>
