@@ -9,6 +9,8 @@ use App\Models\Pedido;
 use App\Models\Produto;
 use App\Models\Carrinho;
 use App\Models\ProdutoImagem;
+use App\Models\PedidoItem;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoItemController extends Controller
 {
@@ -16,10 +18,13 @@ class PedidoItemController extends Controller
 
         $pedidos = Pedido::where('PEDIDO_ID', $pedido)->get();
         $enderecos = Endereco::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->get();
-        $produtos = Carrinho::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->get();
-        
 
-        return view ('carrinho.show')->with('enderecos', $enderecos)->with('pedidos' , $pedidos)->with('produtos', $produtos);
+        $carrinho = PedidoItem::where('PEDIDO_ID', $pedido)->get();
+
+        $produtos = Carrinho::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->whereIn('PRODUTO_ID', $carrinho[]['PRODUTO_ID'])->get();
+
+
+        return view ('carrinho.show', compact('enderecos', 'pedidos' ,'produtos','carrinho'));
 
     }
 }

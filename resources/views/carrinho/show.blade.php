@@ -61,7 +61,14 @@
                         </tbody>
                     </table>
                     <br>
+                    <div>
                     <h2>Total:</h2>
+                    {{$carrinho}}
+                    <br>
+                    <br>
+                    {{$produtos}}
+                    <h4></h4>
+                    </div>
                 </section>
             </div>
         </div>

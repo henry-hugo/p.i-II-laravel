@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class PedidoController extends Controller
 {
     public function store(Request $request , $usuario){
-        
+
         $pedido = Pedido::create([
             'USUARIO_ID'=> $usuario,
             'STATUS_ID'=> 1 ,
@@ -22,15 +22,15 @@ class PedidoController extends Controller
 
 
         foreach($itens as $item){
-            $item->update([
-                'ITEM_QTD'=> 0
-            ]);
 
             PedidoItem::create([
                 'PRODUTO_ID'=> $item->PRODUTO_ID,
                 'PEDIDO_ID'=> $pedido->PEDIDO_ID,
-                'ITEM_QTD'=> $item->ITEM_QTD,
+                'ITEM_QTD'=> (int)$item->ITEM_QTD,
                 'ITEM_PRECO'=> $item->Produto->PRODUTO_PRECO
+            ]);
+            $item->update([
+                'ITEM_QTD'=> 0
             ]);
         }
 
