@@ -19,9 +19,10 @@ class PedidoItemController extends Controller
         $pedidos = Pedido::where('PEDIDO_ID', $pedido)->get();
         $enderecos = Endereco::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->get();
 
-        $carrinho = PedidoItem::where('PEDIDO_ID', $pedido)->get();
+        $carrinho = PedidoItem::where('PEDIDO_ID', $pedido)->pluck('PRODUTO_ID');
+        // dd($carrinho);
 
-        $produtos = Carrinho::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->whereIn('PRODUTO_ID', $carrinho[]['PRODUTO_ID'])->get();
+        $produtos = Carrinho::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->whereIn('PRODUTO_ID', $carrinho)->get();
 
 
         return view ('carrinho.show', compact('enderecos', 'pedidos' ,'produtos','carrinho'));
