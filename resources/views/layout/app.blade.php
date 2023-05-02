@@ -371,6 +371,7 @@
 
 
     <!-- Modal do cadastro -->
+    {{-- @hugo --}}
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -475,6 +476,7 @@
     </div>
 
     <!-- Modal do login -->
+    {{-- @hugo --}}
     <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -513,6 +515,7 @@
     </div>
 
     <!-- Modal do força a fazer login ou cadastro -->
+    {{-- @hugo --}}
     <div class="modal fade" id="loginCadastro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -715,6 +718,7 @@
                         <p class="my-4 text-sm">
                             All rights reserved. Copyright © <script>
                             document.write(new Date().getFullYear())
+                            // {{-- @hugo --}}
                             </script> Foxtrot <a href="" target="_blank">Brinks</a>.
                         </p>
                     </div>
