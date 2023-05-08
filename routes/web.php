@@ -6,7 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\PedidoController;
-use App\Http\Controllers\PedidoItemController;
+use App\Http\Controllers\PedidoItemController; 
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -17,11 +17,15 @@ Route::match(['get','post'],'/',[UsuarioController::class,'create'])->name('prod
 
 Route::post('/',[UsuarioController::class,'store'])->name('registrar');
 
+Route::get('/dashboard', function(){
+    return redirect(route('produto.index'));
+});
+
 //
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
 Route::match(['get','post'],'/categoria/{categoria}',[ProdutoController::class,'categoria'])->name('produto.categoria');
 
-route::post('/carrinho/{produto}',[CarrinhoController::class,'store'])->name('carrinho.store');
+route::post('\carrinho/{produto}',[CarrinhoController::class,'store'])->name('carrinho.store');
 route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
 
 route::get('/carrinho/pagamento', [CarrinhoController::class, 'pagamento'])->name('carrinho.pagamento');
