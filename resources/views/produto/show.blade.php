@@ -77,7 +77,7 @@
                     @else
                         <h3>R$ {{ $produto->PRODUTO_PRECO }}</h3>
                     @endif
-                    @if (isset($produto->ProdutoEstoque->PRODUTO_QTD))
+                    @if (isset($produto->ProdutoEstoque->PRODUTO_QTD) && $produto->ProdutoEstoque->PRODUTO_QTD> 0)
                         <div class="d-flex">
                             
                             <h4>Quantidade: </h4>

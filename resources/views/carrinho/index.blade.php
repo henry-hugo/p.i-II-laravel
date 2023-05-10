@@ -64,7 +64,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">tira</th>
                         <th scope="col">foto</th>
                         <th scope="col">produto</th>
                         <th scope="col">preço</th>
@@ -79,7 +78,6 @@
                             @csrf
 
                         <tr class="">
-                            <td scope="row" >X</td>
 
                             @if(isset($car->Produto->ProdutoImagem[0]->IMAGEM_URL))
                             <td scope="row" ><img src="{{$car->Produto->ProdutoImagem[0]->IMAGEM_URL}}" alt="produto" width="100px" height="73px"></td>
@@ -92,9 +90,9 @@
                             <td scope="row" >
                                 <form action="">
                                     
-                                    @if(isset($car->Produto->ProdutoEstoque->PRODUTO_QTD))
+                                    @if(isset($car->Produto->ProdutoEstoque->PRODUTO_QTD) && $car->Produto->ProdutoEstoque->PRODUTO_QTD> 0 )
                                     <input type="submit" value="-" onclick="menos('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
-                                    <input min="1" max="{{ $car->Produto->ProdutoEstoque->PRODUTO_QTD }}" id="{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}" type="number" name="quantidadeSelect" value="{{$car->ITEM_QTD}}">
+                                    <input min="0" max="{{ $car->Produto->ProdutoEstoque->PRODUTO_QTD }}" id="{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}" type="number" name="quantidadeSelect" value="{{$car->ITEM_QTD}}">
                                     <input type="submit" value="+" onclick="mais('{{Str::substr(($car->Produto->PRODUTO_NOME), 0, 3)}}{{$car->PRODUTO_ID}}')">
                                     @else
                                     <h5>Nao tem item!!</h5>

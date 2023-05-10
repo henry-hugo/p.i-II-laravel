@@ -38,6 +38,6 @@ class EnderecoController extends Controller
                 'ENDERECO_APAGADO'=> 1
             ]);
         }
-        return redirect(route('carrinho.index'));
+        return redirect(route('endereco',Auth::user()->USUARIO_ID));
     }
 }

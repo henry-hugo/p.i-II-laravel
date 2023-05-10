@@ -15,12 +15,19 @@ class CarrinhoController extends Controller
         
         $item = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
         ->where('PRODUTO_ID', $produto)->first();
-
         if($item){
-            $item =$item->update([
-            'ITEM_QTD'=> (int)$request->quantidadeSelect
-            ]);
-            return redirect(route('carrinho.index'));
+            if($request->quantidade =='outro'){
+                $item =$item->update([
+                    'ITEM_QTD'=> (int)$request->quantidadeSelect
+                    ]);
+                    return redirect(route('carrinho.index'));
+            }else{
+                $item =$item->update([
+                    'ITEM_QTD'=> (int)$request->quantidade
+                    ]);
+                    return redirect(route('carrinho.index'));
+            }
+           
         }else{
 
         
