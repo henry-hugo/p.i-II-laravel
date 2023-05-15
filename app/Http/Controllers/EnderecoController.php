@@ -13,6 +13,7 @@ class EnderecoController extends Controller
         $item = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
         ->where('USUARIO_ID', $usuario)->first();
 
+
         if($item){
             $item =$item->update([
                 'USUARIO_ID'=> (int)$usuario,
@@ -38,6 +39,6 @@ class EnderecoController extends Controller
                 'ENDERECO_APAGADO'=> 1
             ]);
         }
-        return redirect(route('endereco',Auth::user()->USUARIO_ID));
+        return redirect(route('carrinho.pagamento'));
     }
 }

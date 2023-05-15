@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\PedidoController;

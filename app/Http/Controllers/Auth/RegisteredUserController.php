@@ -40,6 +40,9 @@ class RegisteredUserController extends Controller
         //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
+        $request->validate([
+            'USUARIO_EMAIL' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+        ]);
         if($request->USUARIO_CPF){
             $user = User::create([   
                 'USUARIO_NOME' => $request->USUARIO_NOME,
@@ -47,15 +50,6 @@ class RegisteredUserController extends Controller
                 'USUARIO_SENHA' => Hash::make($request->USUARIO_SENHA),
                 'USUARIO_CPF' => $request->USUARIO_CPF,
             ]);
-        }else{
-            
-            $user = Administrador::create([
-                'ADM_NOME' => $request->nome,
-                'ADM_EMAIL' => $request->email,
-                'ADM_SENHA' => Hash::make($request->senha),
-                'ADM_ATIVO'=> 1,
-                 ]);
-            
         }
 
         event(new Registered($user));
