@@ -50,12 +50,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($produtos as $produto)
+                        @foreach($items as $item)
                             <tr>
-                                <td><img src="{{$produto->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="100px" alt=""></td>
-                                <td scope="row">{{$produto->Produto->PRODUTO_NOME}}</td>
-                                <td scope="row">{{Str::substr($produto->Produto->PRODUTO_DESC, 0,18)}}</td>
-                                <td scope="row">{{$produto->Produto->getPrecoDesconto()}}</td>
+                                <td><img src="{{$item->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="100px" alt=""></td>
+                                <td scope="row">{{$item->Produto->PRODUTO_NOME}}</td>
+                                <td scope="row">{{Str::substr($item->Produto->PRODUTO_DESC, 0,18)}}</td>
+                                <td scope="row">{{$item->Produto->getPrecoDesconto()}}</td>
                             </tr>
                         @endforeach
                         </tbody>

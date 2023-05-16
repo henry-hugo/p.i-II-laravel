@@ -14,18 +14,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PedidoItemController extends Controller
 {
-    public function index($pedido){
-
-        $pedidos = Pedido::where('PEDIDO_ID', $pedido)->get();
-        $enderecos = Endereco::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->get();
-
-        $carrinho = PedidoItem::where('PEDIDO_ID', $pedido)->pluck('PRODUTO_ID');
-        // dd($carrinho);
-
-        $produtos = Carrinho::where('USUARIO_ID',$pedidos[0]->USUARIO_ID)->whereIn('PRODUTO_ID', $carrinho)->get();
-
-
-        return view ('carrinho.show', compact('enderecos', 'pedidos' ,'produtos','carrinho'));
-
+    public function index(Pedido $pedido){
+        $enderecos = Endereco::where('USUARIO_ID',$pedido->USUARIO_ID)->get();
+        $items = PedidoItem::where([['PEDIDO_ID', '=', $pedido->PEDIDO_ID],['ITEM_QTD','>','0']])->get();
+        return view ('carrinho.show', compact('enderecos', 'pedido' ,'items'));
     }
 }

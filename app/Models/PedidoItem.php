@@ -36,4 +36,8 @@ class PedidoItem extends Model
             return number_format(( $resultado), 2, ',', '.');
     }
 
+    public function Produto(){
+        return $this->belongsTo(Produto::class, 'PRODUTO_ID', 'PRODUTO_ID');
+    }
+
 }

@@ -95,13 +95,13 @@
                         </div>
                         <div class="centerfiltro">
                             <label for="exibir">Exibir:</label>
-                            <select class="form-control" style="width: 15rem;">
-                                <option value="escolha">Escolha</option>
-                                <option value="20pag">20 Produtos</option>
-                                <option value="40pag">40 Produtos</option>
-                                <option value="60pag">60 Produtos</option>
-                                <option value="100pag">100 Produtos</option>
-                            </select>
+                                <select name="pagina" class="form-control" style="width: 15rem;">
+                                    <option value="escolha">Escolha</option>
+                                    <option value="20pag">20 Produtos</option>
+                                    <option value="40pag">40 Produtos</option>
+                                    <option value="60pag">60 Produtos</option>
+                                    <option value="100pag">100 Produtos</option>
+                                </select>                           
                         </div>
                         <div class="centerfiltro">
                             <label for="pesquisa">Pesquisa:</label>
@@ -109,7 +109,7 @@
                                 placeholder="Procurar..">
                         </div>
                     </div>
-                    <tbody id="myTable"> @foreach (\App\Models\Produto::where('PRODUTO_ATIVO', 1)->get() as $produto)
+                    <tbody id="myTable"> @foreach (\App\Models\Produto::where('PRODUTO_ATIVO', 1)->paginate(20)->withQueryString() as $produto)
                         <td class="myTable">
                             <div class="card" style="width:15rem;">
                                 <a href="/produto/{{$produto->PRODUTO_ID}}">

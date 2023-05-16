@@ -24,7 +24,7 @@ function mais(nome){
   
   function menos(nome){
     var atual = document.getElementById(nome).value;
-    if(atual > 1) { //evita números negativos
+    if(atual > 0) { //evita números negativos
       var novo = atual - 1;
       document.getElementById(nome).value = novo;
     }
