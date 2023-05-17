@@ -45,6 +45,7 @@
                             <tr>
                             <th  scope="col">IMAGEM</th>
                             <th  scope="col">PRODUTO</th>
+                            <th  scope="col">QUANTIDADE</th>
                             <th  scope="col">DESCRIÇÃO</th>
                             <th  scope="col">PREÇO</th>
                             </tr>
@@ -52,17 +53,17 @@
                         <tbody>
                         @foreach($items as $item)
                             <tr>
-                                <td><img src="{{$item->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="100px" alt=""></td>
+                                <td><img src="{{$item->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="50px" alt=""></td>
                                 <td scope="row">{{$item->Produto->PRODUTO_NOME}}</td>
+                                <td scope="row">{{$item->ITEM_QTD}}</td>
                                 <td scope="row">{{Str::substr($item->Produto->PRODUTO_DESC, 0,18)}}</td>
-                                <td scope="row">{{$item->Produto->getPrecoDesconto()}}</td>
+                                <td scope="row">{{$item->Produto->preco($item->ITEM_QTD)}}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <br>
                     <div>
-                    <h2>Total:</h2>
                     <h4></h4>
                     </div>
                 </section>

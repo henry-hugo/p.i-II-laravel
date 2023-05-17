@@ -3,14 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
 use App\Models\Endereco;
 use App\Models\Pedido;
-use App\Models\Produto;
-use App\Models\Carrinho;
-use App\Models\ProdutoImagem;
 use App\Models\PedidoItem;
-use Illuminate\Support\Facades\Auth;
 
 class PedidoItemController extends Controller
 {
