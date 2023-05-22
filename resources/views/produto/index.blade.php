@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
                         <h1 class="text-dark pt-3 mt-n5">PROMOÇÕES IMPERDÍVEIS </h1>
-                        <b><p class="lead text-dark mt-3">Só aqui você acha o que procura com o maior desconto!<br> 
+                        <b><p class="lead text-dark mt-3">Só aqui você acha o que procura com o maior desconto!<br>
                             Nãoperca tempo e aproveite tudo de melhor da nossa loja!! </p></b>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                             <label for="ordenar"> Ordenar: </label>
                             <select class="form-control" style="width: 15rem;">
                                 <option value="escolha">Escolha</option>
-                                <option value="precoCrescente">Preço Crescente</option>
+                                <option value="precoCrescente" onclick="$produtos->ordem()">Preço Crescente</option>
                                 <option value="precoDecrescente">Preço Decrescente</option>
                             </select>
                         </div>
@@ -101,7 +101,7 @@
                                     <option value="40pag">40 Produtos</option>
                                     <option value="60pag">60 Produtos</option>
                                     <option value="100pag">100 Produtos</option>
-                                </select>                           
+                                </select>
                         </div>
                         <div class="centerfiltro">
                             <label for="pesquisa">Pesquisa:</label>
@@ -109,7 +109,7 @@
                                 placeholder="Procurar..">
                         </div>
                     </div>
-                    <tbody id="myTable"> @foreach (\App\Models\Produto::where('PRODUTO_ATIVO', 1)->paginate(20)->withQueryString() as $produto)
+                    <tbody id="myTable"> @foreach (\App\Models\Produto::where('PRODUTO_ATIVO', 1)->orderBy('PRODUTO_ID')->cursorPaginate(20)->withQueryString() as $produto)
                         <td class="myTable">
                             <div class="card" style="width:15rem;">
                                 <a href="/produto/{{$produto->PRODUTO_ID}}">
@@ -119,7 +119,7 @@
                                 <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top" alt="...">
                             @endif
                                 <div class="card-body">
-                                    <h5 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h5>
+                                    <h6 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h6>
                                     <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18)}}</p>
                                     @if(isset($produto->PRODUTO_DESC))
                                     <p class="card-number"><i class="price">R$ {{($produto->PRODUTO_PRECO)}}</i> <h3>R$ {{$produto->getPrecoDesconto()}} </h3></p>

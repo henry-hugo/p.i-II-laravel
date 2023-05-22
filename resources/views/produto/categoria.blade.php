@@ -65,8 +65,9 @@
                                 placeholder="Procurar..">
                         </div>
                     </div>
-                    <tbody id="myTable"> 
+                    <tbody id="myTable">
                         @foreach ($produtos as $produto)
+                        <td class="myTable">
                             <div class="card" style="width:15rem;">
                                 <a href="/produto/{{ $produto->PRODUTO_ID }}">
                                     @if (isset($produto->ProdutoImagem[0]->IMAGEM_URL))
@@ -77,7 +78,7 @@
                                             alt="...">
                                     @endif
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h5>
+                                        <h6 class="card-title">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h6>
                                         <p class="card-text">{{ Str::substr($produto->PRODUTO_DESC, 0, 18) }}</p>
                                         @if (isset($produto->PRODUTO_DESC))
                                             <p class="card-number"><i class="price">R$
@@ -94,6 +95,7 @@
                                     </div>
                                 </a>
                             </div>
+                        </td>
                         @endforeach
                     </tbody>
                 </table>

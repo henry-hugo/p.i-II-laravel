@@ -27,6 +27,8 @@ class Produto extends Model
     public function preco($quantidade){
         return number_format((($this->PRODUTO_PRECO - $this->PRODUTO_DESCONTO) * $quantidade ), 2, ',', '.');
     }
-
+    public function ordem(){
+        return Produto::orderBy('PRODUTO_PRECO')->paginate(20);
+    }
 
 }
