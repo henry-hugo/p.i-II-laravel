@@ -401,8 +401,7 @@
                                  required placeholder="****">
                             </div>
                             <div class="mb-3">
-                                <label for="password_confirmation" class="form-label">Senha</label>
-
+                                <label for="password_confirmation" class="form-label">Confirmar Senha</label>
                                 <input class="form-control"
                                 type="password"
                                 name="password_confirmation" required autocomplete="new-password" placeholder="****">
