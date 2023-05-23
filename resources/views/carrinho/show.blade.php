@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('main')
 @if(Auth::check())
-<header class="header-2">
+    <header class="header-2">
         <div class="page-header min-vh-75 relative" style="background-image: url('/assets/img/curved-images/carrinho.jpg')">
             <div class="container">
                 <div class="row">

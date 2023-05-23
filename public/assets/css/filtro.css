@@ -744,3 +744,108 @@ section.endereco{
 }
 
 
+/*Meu Perfil*/
+section.perfil{
+display: flex;
+max-width: 1100px;
+justify-content: space-around;
+padding:0 2%;
+flex-wrap: wrap;
+margin:90px auto;
+}
+
+.form-perfil{
+-webkit-box-shadow: -8px 5px 15px 5px #C7C7C7;
+box-shadow: -8px 5px 15px 5px #C7C7C7;
+padding: 10px 30px;
+width: 30%;
+align-items: center;
+}
+.form-perfil{
+display: flex;
+flex-wrap: wrap;
+}
+.form-10{
+width: 100%;
+margin-bottom: 10px;
+}
+.form-5{
+width: 100%;
+display: flex;
+margin-bottom: 10px;
+}
+.form-perfil label{
+display: block;
+margin-bottom: 8px;
+}
+
+.form-perfil input[type=text]{
+padding-left: 10px;
+width: 100%;
+height: 40px;
+border: 1px solid #C7C7C7;
+}
+
+.form-perfil input[type=submit]{
+width: 100%;
+height: 40px;
+border: 0;
+cursor: pointer;
+background-color: #069;
+color: white;
+}
+
+/*Alterar Senha*/
+
+.AlterarSenha{
+padding-left: 38%;
+padding-bottom: 20%;
+}
+
+section.senha{
+display: flex;
+max-width: 1100px;
+justify-content: space-around;
+padding:0 2%;
+flex-wrap: wrap;
+margin:90px auto;
+}
+
+.form-senha{
+-webkit-box-shadow: -8px 5px 15px 5px #C7C7C7;
+box-shadow: -8px 5px 15px 5px #C7C7C7;
+padding: 10px 30px;
+width: 40%;
+}
+.form-senha{
+display: flex;
+flex-wrap: wrap;
+}
+.form-1{
+width: 100%;
+margin-bottom: 10px;
+}
+
+.form-senha label{
+display: block;
+margin-bottom: 8px;
+}
+
+.form-senha input[type=text]{
+padding-left: 10px;
+width: 100%;
+height: 40px;
+border: 1px solid #C7C7C7;
+}
+
+.form-senha input[type=submit]{
+width: 100%;
+height: 40px;
+border: 0;
+cursor: pointer;
+background-color: #069;
+color: white;
+}
+
+
+

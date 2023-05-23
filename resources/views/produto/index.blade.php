@@ -3,15 +3,6 @@
     <header class="header-2">
         <div class="page-header min-vh-75 relative"
             style="background-image: url('/assets/img/curved-images/logo.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 text-center mx-auto">
-                        <h1 class="text-dark pt-3 mt-n5">PROMOÇÕES IMPERDÍVEIS </h1>
-                        <b><p class="lead text-dark mt-3">Só aqui você acha o que procura com o maior desconto!<br>
-                            Nãoperca tempo e aproveite tudo de melhor da nossa loja!! </p></b>
-                    </div>
-                </div>
-            </div>
 
             <div class="position-absolute w-100 z-index-1 bottom-0">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -109,7 +100,7 @@
                                 placeholder="Procurar..">
                         </div>
                     </div>
-                    <tbody id="myTable"> @foreach (\App\Models\Produto::where('PRODUTO_ATIVO', 1)->orderBy('PRODUTO_ID')->cursorPaginate(20)->withQueryString() as $produto)
+                    <tbody id="myTable"> @foreach ($produtos as $produto)
                         <td class="myTable">
                             <div class="card" style="width:15rem;">
                                 <a href="/produto/{{$produto->PRODUTO_ID}}">
@@ -137,6 +128,7 @@
                     </tbody>
                 </table>
             </div>
+            {{$produtos->links('vendor.pagination.paginate')}}
         </div>
     </section>
 

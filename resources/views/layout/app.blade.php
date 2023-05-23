@@ -284,7 +284,7 @@
         </div>
         <div class="text-center my-2">
             @if(Auth::check())
-            <a href="http://">Perfil</a>
+            <a href="{{route('perfil')}}">Perfil</a>
             <br>
             <a href="{{route('carrinho.checkout')}}">Pedidos</a>
             @else
@@ -703,8 +703,3 @@ if (document.getElementById('state3')) {
 <script src="/assets/js/load.js"></script>
 
 </html>
-
-
-
-
-
