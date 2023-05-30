@@ -11,9 +11,8 @@ use App\Models\Status;
 
 class CarrinhoController extends Controller
 {
-    public function store(Request $request , $produto){
-        
-        $item = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+       public function store(Request $request , $produto){
+              $item = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
         ->where('PRODUTO_ID', $produto)->first();
 
         //dd($request->all());
@@ -51,7 +50,7 @@ class CarrinhoController extends Controller
                 Carrinho::create([
                     'USUARIO_ID'=> Auth::user()->USUARIO_ID,
                     'PRODUTO_ID'=> (int)$produto,
-                    'ITEM_QTD'=> (int)$request->quantidade
+                    'ITEM_QTD'=> (int)$request->quantidadeSelect
                 ]);
                 return redirect(route('carrinho.index'));
             }
