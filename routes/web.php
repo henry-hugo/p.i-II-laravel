@@ -19,6 +19,7 @@ Route::get('/dashboard', function(){
 
 //
 Route::get('/perfil',[ProfileController::class, 'index'])->name('perfil');
+route::post('/perfil',[ProfileController::class, 'update'])->name('perfil.update');
 Route::get('/produto/{produto}',[ProdutoController::class, 'show'])->name('produto.show');
 Route::match(['get','post'],'/categoria/{categoria}',[ProdutoController::class,'categoria'])->name('produto.categoria');
 
