@@ -70,35 +70,7 @@
             <div class="row">
                 <table>
                     <div class="filtro">
-                        <div class="centerfiltro">
-                            <svg width="16" height="13" viewBox="0 0 14 17" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="IconSort">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M7.88883 3.77821L4.33328 0.222656L0.777723 3.77821L3.44439 3.77821L3.44439 10.0004L5.22217 10.0004L5.22217 3.77821L7.88883 3.77821ZM9.66661 16.2227L13.2222 12.6671L10.5555 12.6671L10.5555 6.44488L8.77772 6.44488L8.77772 12.6671L6.11106 12.6671L9.66661 16.2227Z"
-                                    fill="#FF6500"></path>
-                            </svg>
-                            <label for="ordenar"> Ordenar: </label>
-                            <select class="form-control" style="width: 15rem;">
-                                <option value="escolha">Escolha</option>
-                                <option value="precoCrescente" onclick="$produtos->ordem()">Preço Crescente</option>
-                                <option value="precoDecrescente">Preço Decrescente</option>
-                            </select>
-                        </div>
-                        <div class="centerfiltro">
-                            <label for="exibir">Exibir:</label>
-                                <select name="pagina" class="form-control" style="width: 15rem;">
-                                    <option value="escolha">Escolha</option>
-                                    <option value="20pag">20 Produtos</option>
-                                    <option value="40pag">40 Produtos</option>
-                                    <option value="60pag">60 Produtos</option>
-                                    <option value="100pag">100 Produtos</option>
-                                </select>
-                        </div>
-                        <div class="centerfiltro">
-                            <label for="pesquisa">Pesquisa:</label>
-                            <input class="form-control" style="width: 18rem;"  type="search"
-                                placeholder="Procurar..">
-                        </div>
+                      
                     </div>
                     <tbody id="myTable"> @foreach ($produtos as $produto)
                         <td class="myTable">

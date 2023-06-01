@@ -127,7 +127,7 @@
                 <div class="carousel-item active">
                     <div class="cards-wrapper">
 
-                        @foreach (\App\Models\Produto::all()->take(6) as $produto)
+                        @foreach (\App\Models\Produto::all()->where('CATEGORIA_ID',$produto->Categoria->CATEGORIA_ID)->where('PRODUTO_ATIVO', 1)->take(6) as $produto)
                             <div class="card" style="width:15rem;">
                                 <a href="/produto/{{ $produto->PRODUTO_ID }}">
                                     @if (isset($produto->ProdutoImagem[0]->IMAGEM_URL))
@@ -140,7 +140,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h5>
                                         <p class="card-text">{{ Str::substr($produto->PRODUTO_DESC, 0, 18) }}</p>
-                                        @if (isset($produto->PRODUTO_DESC))
+                                        @if (isset($produto->PRODUTO_DESC) && )
                                             <p class="card-number"><i class="price">R$
                                                     {{ $produto->PRODUTO_PRECO }}</i>
                                             <h3>R$ {{ $produto->getPrecoDesconto() }} </h3>
