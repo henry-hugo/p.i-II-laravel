@@ -35,7 +35,8 @@
         <section class="perfil">
             <div class="form-perfil mx-auto" >
                 <div style="text-align: center;">
-                    <form action="" method="post">
+                    <form action="{{route('perfil.update')}}" method="post">
+                        @csrf
                         <h1>Meu Perfil</h1><br>
                         <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -44,15 +45,15 @@
                         <h2>Dados do Usuário</h2>
                         <div class="form-10">
                             <label>Nome:</label>
-                            <input type="text" value="{{Auth::user()->USUARIO_NOME}}">
+                            <input type="text" name="nome" value="{{Auth::user()->USUARIO_NOME}}">
                         </div>
                         <div class="form-10">
                             <label>Email:</label>
-                            <input type="text" value="{{Auth::user()->USUARIO_EMAIL}}">
+                            <input type="text" name="email" value="{{Auth::user()->USUARIO_EMAIL}}">
                         </div>
                         <div class="form-10">
                             <label>CPF:</label>
-                            <input type="text" placeholder="(000.000.000-00)" value="{{Auth::user()->USUARIO_CPF}}">
+                            <input type="text" placeholder="(000.000.000-00)" name="cpf" value="{{Auth::user()->USUARIO_CPF}}">
                         </div>
                         <div>
                             <input class="btn btn-secondary" type="submit" value="Salvar">

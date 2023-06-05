@@ -35,15 +35,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        // ]);
         $request->validate([
             'USUARIO_EMAIL' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
         ]);
-        if($request->USUARIO_CPF){
+    
+        if ($request->USUARIO_CPF) {
             $user = User::create([   
                 'USUARIO_NOME' => $request->USUARIO_NOME,
                 'USUARIO_EMAIL' => $request->USUARIO_EMAIL,
@@ -51,12 +47,11 @@ class RegisteredUserController extends Controller
                 'USUARIO_CPF' => $request->USUARIO_CPF,
             ]);
         }
-
+    
         event(new Registered($user));
-       
+    
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('error', 'Ocorreu um erro ao processar o formulário. Por favor, verifique os campos e tente novamente.');
     }
 }
  

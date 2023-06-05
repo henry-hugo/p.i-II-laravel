@@ -57,23 +57,23 @@
                     <h1>Endereço de Entrega</h1><br>
                         <div class="form-1000">
                         <label>Nome:</label>
-                        <input name="nome" type="text">
+                        <input name="nome" type="text" required>
                     </div>  
                     <div class="form-1000">
                         <label>CEP:</label>
-                        <input name="cep" type="text">
+                        <input name="cep" type="number" required>
                     </div>
                     
                     <div class="form-1000">
                         <label>Endereço:</label>
-                        <input type="text" name="endereco" placeholder="Rua, Avenida...">
+                        <input type="text" name="endereco" placeholder="Rua, Avenida..." required>
                     </div>
                     <div class="form-500">
-                        <input style="margin-top: -1px;" name="numero"  type="text" placeholder="Numero">
-                        <input style="margin-left: -1px;margin-top: -1px;" name="complemento"  type="text" placeholder="Complemento">
+                        <input style="margin-top: -1px;" name="numero"  type="text" placeholder="Numero" required>
+                        <input style="margin-left: -1px;margin-top: -1px;" name="complemento"  type="text" placeholder="Complemento" required>
                     </div>
                     <div class="form-500">
-                        <select id="estado" name="estado" onchange="buscaCidades(this.value)">
+                        <select id="estado" name="estado" onchange="buscaCidades(this.value)" required>
                             <option value="">Selecione o Estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -104,7 +104,7 @@
                             <option value="TO">Tocantins</option>
                         </select>
                         <br />
-                        <select id="cidade" name="cidade">
+                        <select id="cidade" name="cidade" required>
                             <option value="">Cidade <i>(estado)</i></option>
                         </select>
                         <input style="margin-left: -1px;margin-top: -1px;"  type="text" placeholder="Bairro">
@@ -112,11 +112,91 @@
                         <div class="form-1000" style="position: relative;top: 165px;">
                         <button class="btn btn-primary tamanhoBntE" type="submit" >Confirmar</button>                
                     </div>
-                    </form>
+                </form>
 
             </div>
         </section>
     @else
+
+    <section class="endereco" style="flex-wrap: nowrap !important;">
+        @foreach (\App\Models\Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get() as $endereco)
+        <div class="form-endereco d-block" style="max-height:13vh;">
+            <h4>Endereço de Entrega</h4>
+            <h3>{{$endereco->ENDERECO_NOME}}</h3>
+            <p>{{$endereco->ENDERECO_LOGRADOURO}} - {{$endereco->ENDERECO_COMPLEMENTO}} - N°{{$endereco->ENDERECO_NUMERO}} - {{$endereco->ENDERECO_CIDADE}} - {{$endereco->ENDERECO_ESTADO}} - {{$endereco->ENDERECO_CEP}}  </p>
+        </div>
+        <button class="btn" style="height: 13vh;" type="submit" data-bs-toggle="modal" data-bs-target="#editEnd">Editar</button>
+
+        <div class="modal fade" id="editEnd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="{{route('endereco',Auth::user()->USUARIO_ID)}}" method="POST">
+                        @csrf
+                        <div class="modal-header">
+                            <h1 class="modal-title text-center mx-auto">Endereço de Entrega</h1>
+                        </div>
+                        <label  class="form-label">Nome:</label>
+                        <input class="form-control" name="nome" type="text" value="{{$endereco->ENDERECO_NOME}}" required>
+    
+                        <label class="form-label">CEP:</label>
+                        <input class="form-control" name="cep" type="text" value="{{$endereco->ENDERECO_CEP}}" required>
+               
+                        <label  class="form-label">Endereço:</label>
+                        <input class="form-control" type="text" name="endereco" placeholder="Rua, Avenida..." value="{{$endereco->ENDERECO_LOGRADOURO}}" required>
+              
+                        <input  class="form-control" name="numero"  type="text" placeholder="Numero" value="{{$endereco->ENDERECO_NUMERO}}" required>
+                        <input  class="form-control" name="complemento"  type="text" placeholder="Complemento" value="{{$endereco->ENDERECO_COMPLEMENTO}}" required>
+            
+              
+                        <select class="form-control" id="estado" name="estado" onchange="buscaCidades(this.value)" required>
+                            <option value="{{$endereco->ENDERECO_ESTADO}}">Selecione o Estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+           
+                        <select class="form-control" id="cidade" name="cidade" required>
+                            <option value="{{$endereco->ENDERECO_CIDADE}}">Cidade <i>(estado)</i></option>
+                        </select>
+                        <input class="form-control" type="text" placeholder="Bairro">
+              
+                        <button class="form-label btn btn-primary" type="submit" >Editar</button>
+                        <button type="button" class="btn btn-secondary form-label" data-bs-dismiss="modal">Fechar</button>                
+               
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        @endforeach
+    </section>
+
     <section class="pagamento">
         <div class="form-pagamento">
             <form action="{{route('finalizar',Auth::user()->USUARIO_ID)}}" method="POST">
