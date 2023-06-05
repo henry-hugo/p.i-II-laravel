@@ -18,43 +18,17 @@ class CarrinhoController extends Controller
 
         //dd($request->all());
         if($item){
-            if($request->quantidadeSelect !='outro' && $request->quantidadeSelect != null){
-                $item =$item->update([
-                    'ITEM_QTD'=> (int)$request->quantidadeSelect
-                    ]);
-                    return redirect(route('carrinho.index'));
-            }else if($request->quantidade =='outro'){
-                $item =$item->update([
-                    'ITEM_QTD'=> (int)$request->quantidadeSelect
-                    ]);
-                    return redirect(route('carrinho.index'));
-            }else{
-                $item =$item->update([
-                    'ITEM_QTD'=> (int)$request->quantidade
-                    ]);
-                    return redirect(route('carrinho.index'));
-            }
-           
+            $item =$item->update([
+                'ITEM_QTD'=> (int)$request->quantidadeSelect
+                ]);
+                return redirect(route('carrinho.index'));
         }else{
-
-        
-            if($request->quantidade == 'outro'){
-            
-                Carrinho::create([
-                    'USUARIO_ID'=> Auth::user()->USUARIO_ID,
-                    'PRODUTO_ID'=> (int)$produto,
-                    'ITEM_QTD'=> (int)$request->quantidadeSelect
-                ]);
-                return redirect(route('carrinho.index'));
-            }else{
-            
-                Carrinho::create([
-                    'USUARIO_ID'=> Auth::user()->USUARIO_ID,
-                    'PRODUTO_ID'=> (int)$produto,
-                    'ITEM_QTD'=> (int)$request->quantidade
-                ]);
-                return redirect(route('carrinho.index'));
-            }
+            Carrinho::create([
+                'USUARIO_ID'=> Auth::user()->USUARIO_ID,
+                'PRODUTO_ID'=> (int)$produto,
+                'ITEM_QTD'=> (int)$request->quantidadeSelect
+            ]);
+            return redirect(route('carrinho.index'));
         }
 
    

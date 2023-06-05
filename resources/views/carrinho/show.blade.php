@@ -53,7 +53,11 @@
                         <tbody>
                         @foreach($items as $item)
                             <tr>
+                                @if(isset($item->Produto->ProdutoImagem[0]->IMAGEM_URL))
                                 <td><img src="{{$item->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="50px" alt=""></td>
+                                @else
+                                <td><img src="/assets/img/curved-images/sem-imagem.jpg" width="50px" alt=""></td>
+                                @endif
                                 <td scope="row">{{$item->Produto->PRODUTO_NOME}}</td>
                                 <td scope="row">{{$item->ITEM_QTD}}</td>
                                 <td scope="row">{{Str::substr($item->Produto->PRODUTO_DESC, 0,18)}}</td>
