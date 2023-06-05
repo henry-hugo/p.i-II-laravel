@@ -151,7 +151,7 @@
             
               
                         <select class="form-control" id="estado" name="estado" onchange="buscaCidades(this.value)" required>
-                            <option value="">Selecione o Estado</option>
+                            <option value="{{$endereco->ENDERECO_ESTADO}}">Selecione o Estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
@@ -182,7 +182,7 @@
                         </select>
            
                         <select class="form-control" id="cidade" name="cidade" required>
-                            <option value="">Cidade <i>(estado)</i></option>
+                            <option value="{{$endereco->ENDERECO_CIDADE}}">Cidade <i>(estado)</i></option>
                         </select>
                         <input class="form-control" type="text" placeholder="Bairro">
               

@@ -31,4 +31,18 @@ class Produto extends Model
         return Produto::orderBy('PRODUTO_PRECO')->paginate(20);
     }
 
+    public function total($itens){
+        //dd( $itens[0]->Produto->PRODUTO_DESCONTO);
+        $resultado = 0;
+        for($i = 0; $i<count($itens); $i++){
+            $qtd = $itens[$i]['ITEM_QTD'];
+            $preco = $itens[$i]['ITEM_PRECO']*$qtd;
+            $des = $itens[$i]->Produto->PRODUTO_DESCONTO * $qtd;
+            $precodes = $preco - $des;
+            $resultado += $precodes;
+        }
+
+        return number_format(($resultado), 2, ',', '.');
+    }
+
 }

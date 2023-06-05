@@ -51,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($items as $item)
+                        @foreach($itens as $item)
                             <tr>
                                 @if(isset($item->Produto->ProdutoImagem[0]->IMAGEM_URL))
                                 <td><img src="{{$item->Produto->ProdutoImagem[0]->IMAGEM_URL}}" width="50px" alt=""></td>
@@ -67,8 +67,9 @@
                         </tbody>
                     </table>
                     <br>
-                    <div>
-                    <h4></h4>
+                    <div class="linha">
+                        <div class="texto">Total</div>
+                        <div class="valor">{{$itens[0]->Produto->total($itens)}}</div>
                     </div>
                 </section>
             </div>

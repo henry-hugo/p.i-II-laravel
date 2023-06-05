@@ -847,5 +847,19 @@ background-color: #069;
 color: white;
 }
 
+.linha {
+  display: flex;
+  align-items: center;
+}
+
+.linha .texto {
+  flex: 1;
+  border-bottom: 1px solid black;
+}
+
+.linha .valor {
+  margin-left: 5px;
+}
+
 
 

@@ -35,7 +35,7 @@
             <div class="row">
                 <table>
                     <div class="filtro">
-                      
+                        <h1 class="mx-auto text-uppercase">{{\App\Models\Categoria::where('CATEGORIA_ID', $produtos[0]->CATEGORIA_ID)->pluck('CATEGORIA_NOME')->first()}}</h1> 
                     </div>
                     <tbody id="myTable">
                         @foreach ($produtos as $produto)
@@ -50,7 +50,7 @@
                                             alt="...">
                                     @endif
                                     <div class="card-body">
-                                        <h6 class="card-title">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h6>
+                                        <h6 class="card-title text-uppercase">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h6>
                                         <p class="card-text">{{ Str::substr($produto->PRODUTO_DESC, 0, 18) }}</p>
                                         @if (isset($produto->PRODUTO_DESC))
                                             <p class="card-number"><i class="price">R$

@@ -82,7 +82,7 @@
                                 <img src="/assets/img/curved-images/sem-imagem.jpg" class="card-img-top" alt="...">
                             @endif
                                 <div class="card-body">
-                                    <h6 class="card-title">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h6>
+                                    <h6 class="card-title text-uppercase">{{Str::substr(($produto->PRODUTO_NOME), 0, 18)}}</h6>
                                     <p class="card-text">{{Str::substr(($produto->PRODUTO_DESC), 0, 18)}}</p>
                                     @if(isset($produto->PRODUTO_DESC))
                                     <p class="card-number"><i class="price">R$ {{($produto->PRODUTO_PRECO)}}</i> <h3>R$ {{$produto->getPrecoDesconto()}} </h3></p>

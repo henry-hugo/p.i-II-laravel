@@ -36,7 +36,7 @@
                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                         @if(isset($produto->ProdutoImagem[0]->IMAGEM_URL))
                         @foreach ($produto->ProdutoImagem as $imagem)
-                            @if ($imagem->IMAGEM_ORDEM == 0)
+                            @if ($imagem->IMAGEM_ORDEM == 1)
                                 <div class="carousel-item active">
                                     <img class="d-block w-100" src="{{ $imagem->IMAGEM_URL }}" alt="Slide" height="400px"
                                         width="auto">
@@ -66,7 +66,7 @@
                     @csrf
                 
                 <div class="possition-desc">
-                    <H2>{{ $produto->PRODUTO_NOME }}</H2> 
+                    <H2 class="text-uppercase">{{ $produto->PRODUTO_NOME }}</H2> 
                     @if (isset($produto->PRODUTO_DESC))
                         <h4 class="price">R$ {{ $produto->PRODUTO_PRECO }}</h4>
                     @endif
@@ -138,7 +138,7 @@
                                             alt="...">
                                     @endif
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h5>
+                                        <h6 class="card-title text-uppercase">{{ Str::substr($produto->PRODUTO_NOME, 0, 18) }}</h6>
                                         <p class="card-text">{{ Str::substr($produto->PRODUTO_DESC, 0, 18) }}</p>
                                         @if (isset($produto->PRODUTO_DESC))
                                             <p class="card-number"><i class="price">R$
