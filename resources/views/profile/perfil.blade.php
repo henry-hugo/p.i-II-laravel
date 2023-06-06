@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-10">
                             <label>CPF:</label>
-                            <input type="text" placeholder="(000.000.000-00)" name="cpf" value="{{Auth::user()->USUARIO_CPF}}">
+                            <input type="text" placeholder="(000.000.000-00)" max="9999999999" name="cpf" value="{{Auth::user()->USUARIO_CPF}}">
                         </div>
                         <div>
                             <input class="btn btn-secondary" type="submit" value="Salvar">

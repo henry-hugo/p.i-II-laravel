@@ -61,7 +61,7 @@
                     </div>  
                     <div class="form-1000">
                         <label>CEP:</label>
-                        <input name="cep" type="number" required>
+                        <input name="cep" type="number" required max="99999999">
                     </div>
                     
                     <div class="form-1000">
@@ -141,7 +141,7 @@
                         <input class="form-control" name="nome" type="text" value="{{$endereco->ENDERECO_NOME}}" required>
     
                         <label class="form-label">CEP:</label>
-                        <input class="form-control" name="cep" type="text" value="{{$endereco->ENDERECO_CEP}}" required>
+                        <input class="form-control" name="cep" type="text" max="99999999" value="{{$endereco->ENDERECO_CEP}}" required>
                
                         <label  class="form-label">Endereço:</label>
                         <input class="form-control" type="text" name="endereco" placeholder="Rua, Avenida..." value="{{$endereco->ENDERECO_LOGRADOURO}}" required>

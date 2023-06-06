@@ -410,7 +410,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControcpf" class="form-label"> CPF</label>
                                 <input type="number" class="form-control" name="USUARIO_CPF" required id="cpf"
-                                    placeholder="xxx.xxx.xxx-xx">
+                                    placeholder="xxx.xxx.xxx-xx" maxlength="11" minlength="0" max="9999999999">
                             </div>
 
                         </div>
